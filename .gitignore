@@ -102,3 +102,23 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# webstorm
+.idea/*
+
+
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/
+
+# macOS
+.DS_Store
