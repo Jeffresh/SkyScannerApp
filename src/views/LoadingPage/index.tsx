@@ -1,4 +1,4 @@
 import React from 'react'
 import {View, Text} from 'react-native';
 
-export default (): JSX.Element =>  <View><Text>Loadin Page</Text></View>
+export default (): JSX.Element =>  <View><Text>Loading Page</Text></View>
