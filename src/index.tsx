@@ -1,4 +1,4 @@
 import React from 'react';
-import { RootStack } from './routes';
+import { RootStack as Routes } from './routes';
 
-export default (): JSX.Element => <RootStack/>
+export default (): JSX.Element => <Routes />
