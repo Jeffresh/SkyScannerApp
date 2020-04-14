@@ -1,7 +1,15 @@
 import React from 'react';
-import { createStackNavigator} from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
 
-import Login from '../views/Login/'
+import {
+  LOADING_PAGE,
+  LOGIN,
+  HOME,
+  RESULTS,
+  PROFILE,
+} from '../consts';
+
+import Login  from '../views/Login'
 import  Home from '../views/Home'
 import LoadingPage from '../views/LoadingPage'
 import Results from '../views/Results'
@@ -17,23 +25,23 @@ export const RootStack = () => {
       initialRouteName="LoadingPage"
       headerMode="none">
       <Stack.Screen
-        name="LoadingPage"
+        name={LOADING_PAGE}
         component={LoadingPage}
         />
       <Stack.Screen
-        name="Home"
+        name={HOME}
         component={Home}
       />
       <Stack.Screen
-        name="Login"
+        name={LOGIN}
         component={Login}
       />
       <Stack.Screen
-        name="Profile"
+        name={PROFILE}
         component={Profile}
       />
       <Stack.Screen
-        name="Results"
+        name={RESULTS}
         component={Results}
       />
     </Stack.Navigator>
