@@ -24,7 +24,7 @@ export const RootStack = ():JSX.Element => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="LoadingPage"
+        initialRouteName={LOADING_PAGE}
         headerMode="none">
         <Stack.Screen
           name={LOADING_PAGE}
