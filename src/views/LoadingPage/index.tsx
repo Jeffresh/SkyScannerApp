@@ -1,12 +1,19 @@
 import React, {useEffect} from 'react'
-import {View, Text} from 'react-native';
+import { View, Text, Spinner, Container, Content, Grid } from 'native-base'
 import { LOGIN } from '../../consts'
+import styles from './style'
 
 export default ({navigation}:any): JSX.Element => {
   useEffect(()=> {
     navigation.navigate(LOGIN)
   })
   return(
-    <View><Text>Loading Page</Text></View>
+    <Container>
+      <Content contentContainerStyle={styles.content}>
+        <Grid style ={styles.grid}>
+          <Spinner color = 'green'/>
+        </Grid>
+      </Content>
+    </Container>
   )
 }
