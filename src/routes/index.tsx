@@ -1,5 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'
+import {NavigationContainer} from '@react-navigation/native';
+
 
 import {
   LOADING_PAGE,
@@ -20,29 +22,36 @@ export const RootStack = ():JSX.Element => {
   const Stack = createStackNavigator()
 
   return (
-    <Stack.Navigator
-      initialRouteName="LoadingPage"
-      headerMode="none">
-      <Stack.Screen
-        name={LOADING_PAGE}
-        component={LoadingPage}
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="LoadingPage"
+        headerMode="none">
+        <Stack.Screen
+          name={LOADING_PAGE}
+          component={LoadingPage}
         />
-      <Stack.Screen
-        name={HOME}
-        component={Home}
-      />
-      <Stack.Screen
-        name={LOGIN}
-        component={Login}
-      />
-      <Stack.Screen
-        name={PROFILE}
-        component={Profile}
-      />
-      <Stack.Screen
-        name={RESULTS}
-        component={Results}
-      />
-    </Stack.Navigator>
+
+        <Stack.Screen
+          name={LOGIN}
+          component={Login}
+        />
+
+        <Stack.Screen
+          name={HOME}
+          component={Home}
+        />
+
+        <Stack.Screen
+          name={RESULTS}
+          component={Results}
+        />
+
+        <Stack.Screen
+          name={PROFILE}
+          component={Profile}
+        />
+      </Stack.Navigator>
+
+    </NavigationContainer>
   )
 };
