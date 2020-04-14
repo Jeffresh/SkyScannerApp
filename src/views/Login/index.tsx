@@ -1,4 +1,15 @@
 import React from 'react'
-import {View, Text} from 'react-native';
+import { Container, Content, Text } from 'native-base'
 
-export default (): JSX.Element =>  <View><Text>Login</Text></View>
+const Login = ():JSX.Element => {
+  return(
+    <Container>
+      <Content>
+        <Text>Login</Text>
+      </Content>
+    </Container>
+
+  )
+}
+
+export default Login
