@@ -29,5 +29,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
 
   },
+  googleIcon: {
+    width: 40,
+    height: 40,
   }
 })

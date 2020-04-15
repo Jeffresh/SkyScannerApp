@@ -1,6 +1,8 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { Container, Content, Text, Grid, Button } from 'native-base'
 import styles from './style';
+const GOOGLE_IMAGE = require('../../../assets/google-icon.png')
 const Login = ():JSX.Element => {
   return(
     <Container>
@@ -12,6 +14,7 @@ const Login = ():JSX.Element => {
             <Text>
               Google
             </Text>
+            <Image source={GOOGLE_IMAGE} style={styles.googleIcon}/>
           </Button>
         </Grid>
       </Content>
