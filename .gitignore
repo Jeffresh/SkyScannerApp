@@ -14,3 +14,6 @@ web-report/
 # macOS
 .DS_Store
 .idea
+
+# clientids file
+clientIds.ts
