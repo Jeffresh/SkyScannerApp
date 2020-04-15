@@ -6,9 +6,9 @@ const Login = ():JSX.Element => {
     <Container>
       <Content contentContainerStyle={styles.content}>
         <Grid style={styles.grid}>
-          <Text>Welcome!</Text>
-          <Text>Sign in to continue</Text>
-          <Button light>
+          <Text style={styles.title}>Welcome!</Text>
+          <Text style={styles.subtitle}>Sign in to continue</Text>
+          <Button light style={styles.googleBtn}>
             <Text>
               Google
             </Text>
