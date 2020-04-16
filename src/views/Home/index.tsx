@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState, useEffect, SetStateAction} from 'react'
 import {Container, Content, Text} from 'native-base';
 import { Header } from '../../components/Header'
 
@@ -9,7 +9,7 @@ export const Home = (): JSX.Element => {
   const [userInfo, setUserInfo] = useState(null)
 
   const loadUserInfo = async () => {
-    let userInfo = await getItem(USER_INFO)
+    let userInfo:SetStateAction<any> = await getItem(USER_INFO)
     setUserInfo(userInfo)
   }
   useEffect(() => {
@@ -20,7 +20,8 @@ export const Home = (): JSX.Element => {
 
   return (
     <Container>
-      <Header imageUri={{uri: userInfo && userInfo.photoUrl}}/>
+      // @ts-ignore
+      <Header imageUri={{uri: userInfo && userInfo.photoUrl }}/>
     </Container>
   )
 }
