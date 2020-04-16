@@ -4,18 +4,20 @@ import { Container, Content, Text, Grid, Button } from 'native-base'
 import * as Google from 'expo-google-app-auth'
 import styles from './style';
 import { saveItem } from '../../utils/storage';
-
+import environment from '../../../env'
 import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '../../consts';
-import { CLIENT_IDS } from '../../../clientIds'
 const GOOGLE_IMAGE = require('../../../assets/google-icon.png')
+const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
 
 const Login = ():JSX.Element => {
 
   const handleLoginPress = async () => {
     try {
       const result = await Google.logInAsync({
-        androidClientId: CLIENT_IDS.androidClientId,
-        androidStandaloneAppClientId: CLIENT_IDS.androidStandaloneAppClientId,
+        androidClientId,
+        iosClientId,
+        androidStandaloneAppClientId,
+        iosStandaloneAppClientId,
       })
 
       if (result.type === GOOGLE_SUCCESS_MESSAGE) {
