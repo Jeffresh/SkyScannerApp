@@ -8,3 +8,8 @@ export const ROBOTO_FONT = {
   roboto: require('../../node_modules/native-base/Fonts/Roboto.ttf'),
   robotoMedium: require('../../node_modules/native-base/Fonts/Roboto_medium.ttf'),
 }
+
+export const ACCESS_TOKEN = '@access-token'
+export const USER_INFO = '@user-info'
+
+export const GOOGLE_SUCCESS_MESSAGE = 'success'
