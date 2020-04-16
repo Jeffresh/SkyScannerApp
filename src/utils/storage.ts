@@ -11,8 +11,7 @@ export const saveItem = async (keyName: string, keyValue:string) => {
 
 export const getItem = async (keyName:string) => {
   try{
-    await AsyncStorage.getItem(keyName)
-    return true
+    return await AsyncStorage.getItem(keyName)
   } catch(e) {
     return false
   }
