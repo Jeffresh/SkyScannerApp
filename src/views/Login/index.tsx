@@ -6,10 +6,11 @@ import styles from './style';
 import { saveItem } from '../../utils/storage';
 import environment from '../../../env'
 import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '../../consts';
+import {HOME} from '../../consts';
 const GOOGLE_IMAGE = require('../../../assets/google-icon.png')
 const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
 
-const Login = ():JSX.Element => {
+const Login = ({navigation}:any):JSX.Element => {
 
   const handleLoginPress = async () => {
     try {
@@ -26,7 +27,14 @@ const Login = ():JSX.Element => {
         try {
           const userResult = await saveItem(USER_INFO, JSON.stringify(result.user))
           if(result.accessToken !== null) {
+            console.log('entering accesstoken')
             const tokenResult = await saveItem(ACCESS_TOKEN, result.accessToken)
+            if(userResult && tokenResult) {
+              navigation.navigate(HOME)
+            }
+            else {
+              alert('Error: failed singing in')
+            }
           }
           else {
             alert('error: Null access token')
