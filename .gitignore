@@ -17,3 +17,6 @@ web-report/
 
 # clientids file
 clientIds.ts
+
+# environment file
+env.ts
