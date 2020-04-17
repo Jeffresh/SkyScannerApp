@@ -32,6 +32,7 @@ export const SearchComponent = (props : any) => {
       <Item>
         <Picker placeholder="Select your SIM" mode='dropdown'>
           <Picker.Item label="Adult's number" key="0"/>
+          <Picker.Item label="1" key="1"/>
           <Picker.Item label="2" key="2"/>
           <Picker.Item label="3" key="3"/>
           <Picker.Item label="4" key="4"/>
