@@ -4,8 +4,13 @@ import {Form, Input, Item, Label, Icon, DatePicker, Picker} from 'native-base';
 export const SearchComponent = (props : any) => {
   const [originPlace, setOriginPlace] = useState('')
   const [destinationPlace, setDestinationPlace] = useState('')
+  const [outBoundDate, setOutBoundDate] = useState({} as Date)
+  const [inBoundDate, setInBoundDate] = useState({} as Date)
   const handleOriginPlaceChange = (origin:string) => setOriginPlace(origin)
   const handleDestinationPlaceChange = (destination:string) => setDestinationPlace(destination)
+  const handleInBoundDateChange = (inboundDate: Date) => setInBoundDate(inboundDate)
+  const handleOutBoundDateChange = (outboundDate: Date) => setOutBoundDate(outboundDate)
+
   return (
     <Form>
       <Item>
@@ -18,13 +23,11 @@ export const SearchComponent = (props : any) => {
       </Item>
       <Item>
         <Icon ios="ios-calendar" android='md-calendar'/>
-        <DatePicker placeHolderText="Departure date"
-        />
+        <DatePicker placeHolderText="Departure date" onDateChange={handleInBoundDateChange}/>
       </Item>
       <Item>
         <Icon ios="ios-calendar" android='md-calendar'/>
-        <DatePicker placeHolderText="Arrival date (optional)"
-        />
+        <DatePicker placeHolderText="Arrival date (optional)" onDateChange={handleOutBoundDateChange}/>
       </Item>
       <Item>
         <Picker placeholder="Select your SIM" mode='dropdown'>
