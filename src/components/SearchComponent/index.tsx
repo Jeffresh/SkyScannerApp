@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Form, Input, Item, Label, Icon, DatePicker, Picker} from 'native-base';
+import {Form, Input, Item, Label, Icon, DatePicker, Picker, Button, Text} from 'native-base';
 import styles from './style';
 
 export const SearchComponent = (props : any) => {
@@ -70,6 +70,10 @@ export const SearchComponent = (props : any) => {
           <Picker.Item label="7" value="7"/>
         </Picker>
       </Item>
+      <Button style={styles.searchBtn}>
+        <Icon name="search" style={styles.searchIcon}/>
+        <Text style={styles.searchBtnText}>Search</Text>
+      </Button>
     </Form>
   )
 }
