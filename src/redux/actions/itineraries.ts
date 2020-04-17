@@ -1,6 +1,6 @@
 import { GET_LOCATIONS_START } from '../../consts/actionTypes';
 
-interface getLocationPayload {
+export interface getLocationPayload {
   payload: {
 
   }
