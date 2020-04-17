@@ -8,8 +8,8 @@ import {
   RESULTS,
   PROFILE,
 } from '../consts';
-import Login  from '../views/Login'
-import Home from '../views/Home'
+import Login from '../views/Login'
+import { Home } from '../views/Home'
 import LoadingPage from '../views/LoadingPage'
 import Results from '../views/Results'
 import Profile from  '../views/Profile'
