@@ -3,6 +3,7 @@ import {Container, Content, Text} from 'native-base';
 import { Header } from '../../components/Header'
 import { getItem } from '../../utils/storage';
 import { USER_INFO } from '../../consts';
+import { SearchComponent } from '../../components/SearchComponent';
 
 export const Home = (): JSX.Element => {
   const [userInfo, setUserInfo] = useState(null)
@@ -21,6 +22,9 @@ export const Home = (): JSX.Element => {
   return (
     <Container>
       <Header imageUri={ userInfo && userInfo.photoUrl }/>
+      <Content>
+        <SearchComponent/>
+      </Content>
     </Container>
   )
 }
