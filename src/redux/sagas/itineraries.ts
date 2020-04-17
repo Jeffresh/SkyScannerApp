@@ -9,11 +9,10 @@ import { takeLatest } from 'redux-saga/effects';
 
 export function* getLocations( payload :getLocationPayload ) {
   try {
-
+    console.log("Im listening!")
   } catch (e) {
-
+    alert(e)
   }
-
 }
 
 export default function * itineraries() {

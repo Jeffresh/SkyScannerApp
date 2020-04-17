@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {Form, Input, Item, Label, Icon, DatePicker, Picker, Button, Text} from 'native-base';
 import styles from './style';
+import { useDispatch } from 'react-redux';
+import {getLocationPayload, getLocations} from '../../redux/actions/itineraries';
 
 export const SearchComponent = (props : any) => {
+  const dispatch = useDispatch()
   const [originPlace, setOriginPlace] = useState('')
   const [destinationPlace, setDestinationPlace] = useState('')
   const [outBoundDate, setOutBoundDate] = useState({} as Date)
@@ -24,6 +27,10 @@ export const SearchComponent = (props : any) => {
       !destinationPlace ||
       JSON.stringify(inBoundDate)== "{}" ||
       !adultsNumber;
+  }
+
+  const handleSearchBtnClick = () => {
+    dispatch(getLocations({} as getLocationPayload))
   }
 
   return (
@@ -77,7 +84,7 @@ export const SearchComponent = (props : any) => {
           <Picker.Item label="7" value="7"/>
         </Picker>
       </Item>
-      <Button style={styles.searchBtn} disabled={searchButtonDisabled()}>
+      <Button style={styles.searchBtn} disabled={searchButtonDisabled()} onPress={handleSearchBtnClick}>
         <Icon name="search" style={styles.searchIcon}/>
         <Text style={styles.searchBtnText}>Search</Text>
       </Button>
