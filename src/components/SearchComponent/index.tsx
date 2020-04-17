@@ -38,7 +38,7 @@ export const SearchComponent = (props : any) => {
       </Item>
       <Item>
         <Picker
-          placeholder="Select your SIM"
+          placeholder="Adult's number"
           mode='dropdown'
           selectedValue={adultsNumber}
           onValueChange={handleAdultsNumberChange}
@@ -55,7 +55,7 @@ export const SearchComponent = (props : any) => {
         </Picker>
         <Icon name='person'/>
         <Picker
-          placeholder="Select your SIM"
+          placeholder="Children number"
           mode='dropdown'
           selectedValue={childrenNumber}
           onValueChange={handleChildrenNumberChange}
