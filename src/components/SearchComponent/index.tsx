@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Form, Input, Item, Label, Icon, DatePicker, Picker} from 'native-base';
+import styles from './style';
 
 export const SearchComponent = (props : any) => {
   const [originPlace, setOriginPlace] = useState('')
@@ -19,7 +20,7 @@ export const SearchComponent = (props : any) => {
   const handleChildrenNumberChange = (childrenNumber: string) => setChildrenNumber(childrenNumber)
 
   return (
-    <Form>
+    <Form style={styles.form}>
       <Item>
         <Icon ios='ios-home' android='md-home'/>
         <Input placeholder="Origin" value={originPlace} onChangeText={handleOriginPlaceChange}/>
