@@ -32,8 +32,7 @@ export const SearchComponent = (props : any) => {
       <Item>
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker placeHolderText="Departure date" onDateChange={handleInBoundDateChange}/>
-      </Item>
-      <Item>
+
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker placeHolderText="Arrival date (optional)" onDateChange={handleOutBoundDateChange}/>
       </Item>
@@ -55,8 +54,6 @@ export const SearchComponent = (props : any) => {
           <Picker.Item label="7" value="7"/>
         </Picker>
         <Icon name='person'/>
-      </Item>
-      <Item>
         <Picker
           placeholder="Select your SIM"
           mode='dropdown'
