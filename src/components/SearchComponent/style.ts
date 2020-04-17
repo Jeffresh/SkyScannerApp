@@ -6,6 +6,19 @@ export default StyleSheet.create({
     width,
     paddingLeft: width /14,
     paddingRight: width/14,
+  },
+  datesContainer: {
+    marginTop: 12,
+    justifyContent: 'space-between',
+
+  },
+  input: {
+    marginTop: 12,
+    marginBottom: 14
+  },
+  pickersContainer: {
+    marginTop:12,
+    marginBottom: 14
   }
 
 })

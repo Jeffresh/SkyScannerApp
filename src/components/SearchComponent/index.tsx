@@ -23,27 +23,27 @@ export const SearchComponent = (props : any) => {
     <Form style={styles.form}>
       <Item>
         <Icon ios='ios-home' android='md-home'/>
-        <Input placeholder="Origin" value={originPlace} onChangeText={handleOriginPlaceChange}/>
+        <Input placeholder="Origin" value={originPlace} onChangeText={handleOriginPlaceChange} style={styles.input}/>
       </Item>
       <Item>
         <Icon ios='ios-airplane' android='md-airplane'/>
-        <Input placeholder="Destination" value={destinationPlace} onChangeText={handleDestinationPlaceChange}/>
+        <Input placeholder="Destination" value={destinationPlace} onChangeText={handleDestinationPlaceChange} style={styles.input}/>
       </Item>
-      <Item>
+      <Item style={styles.datesContainer}>
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker placeHolderText="Departure date" onDateChange={handleInBoundDateChange}/>
 
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker placeHolderText="Arrival date (optional)" onDateChange={handleOutBoundDateChange}/>
       </Item>
-      <Item>
+      <Item style={styles.pickersContainer}>
+        <Icon name='person'/>
         <Picker
           placeholder="Adult's number"
           mode='dropdown'
           selectedValue={adultsNumber}
           onValueChange={handleAdultsNumberChange}
         >
-
           <Picker.Item label="Adult's number" key="0"/>
           <Picker.Item label="1" value="1"/>
           <Picker.Item label="2" value="2"/>
@@ -69,7 +69,6 @@ export const SearchComponent = (props : any) => {
           <Picker.Item label="6" value="6"/>
           <Picker.Item label="7" value="7"/>
         </Picker>
-        <Icon name='person'/>
       </Item>
     </Form>
   )
