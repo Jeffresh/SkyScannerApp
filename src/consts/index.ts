@@ -13,3 +13,7 @@ export const ACCESS_TOKEN = '@access-token'
 export const USER_INFO = '@user-info'
 
 export const GOOGLE_SUCCESS_MESSAGE = 'success'
+
+export const PRIMARY = '#512da8'
+export const PRIMARY_DARK = '#311b92'
+export  const SECONDARY = '#f5b72c'
