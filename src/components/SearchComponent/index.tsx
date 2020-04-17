@@ -2,15 +2,19 @@ import React, { useState , useEffect } from 'react';
 import {Form, Input, Item, Label, Icon, DatePicker, Picker} from 'native-base';
 
 export const SearchComponent = (props : any) => {
+  const [originPlace, setOriginPlace] = useState('')
+  const [destinationPlace, setDestinationPlace] = useState('')
+  const handleOriginPlaceChange = (origin:string) => setOriginPlace(origin)
+  const handleDestinationPlaceChange = (destination:string) => setDestinationPlace(destination)
   return (
     <Form>
       <Item>
         <Icon ios='ios-home' android='md-home'/>
-        <Input placeholder="Origin"/>
+        <Input placeholder="Origin" value={originPlace} onChangeText={handleOriginPlaceChange}/>
       </Item>
       <Item>
         <Icon ios='ios-airplane' android='md-airplane'/>
-        <Input placeholder="Destination"/>
+        <Input placeholder="Destination" value={destinationPlace} onChangeText={handleDestinationPlaceChange}/>
       </Item>
       <Item>
         <Icon ios="ios-calendar" android='md-calendar'/>
