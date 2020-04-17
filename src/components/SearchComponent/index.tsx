@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-import { Form, Input, Item, Label, Icon} from 'native-base';
+import {Form, Input, Item, Label, Icon, DatePicker} from 'native-base';
 
 export const SearchComponent = (props : any) => {
   return (
@@ -11,6 +11,16 @@ export const SearchComponent = (props : any) => {
       <Item>
         <Icon name='ios-airplane'/>
         <Input placeholder="Destination"/>
+      </Item>
+      <Item>
+        <Icon ios="ios-calendar" android='md-calendar'/>
+        <DatePicker placeHolderText="Departure date"
+        />
+      </Item>
+      <Item>
+        <Icon ios="ios-calendar" android='md-calendar'/>
+        <DatePicker placeHolderText="Arrival date (optional)"
+        />
       </Item>
     </Form>
   )
