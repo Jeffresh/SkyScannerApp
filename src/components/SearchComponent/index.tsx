@@ -5,11 +5,11 @@ export const SearchComponent = (props : any) => {
   return (
     <Form>
       <Item>
-        <Icon name='ios-home'/>
+        <Icon ios='ios-home' android='md-home'/>
         <Input placeholder="Origin"/>
       </Item>
       <Item>
-        <Icon name='ios-airplane'/>
+        <Icon ios='ios-airplane' android='md-airplane'/>
         <Input placeholder="Destination"/>
       </Item>
       <Item>
