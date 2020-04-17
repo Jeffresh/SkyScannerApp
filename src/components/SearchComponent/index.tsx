@@ -22,7 +22,7 @@ export const SearchComponent = (props : any) => {
   const searchButtonDisabled = () => {
     return !originPlace ||
       !destinationPlace ||
-      JSON.stringify(outBoundDate)== "{}" ||
+      JSON.stringify(inBoundDate)== "{}" ||
       !adultsNumber;
   }
 
