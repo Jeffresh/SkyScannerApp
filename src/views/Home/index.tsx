@@ -1,9 +1,10 @@
 import React, {useState, useEffect, SetStateAction} from 'react'
-import {Container, Content, Text} from 'native-base';
+import {Container, Content, Text, Grid} from 'native-base';
 import { Header } from '../../components/Header'
 import { getItem } from '../../utils/storage';
 import { USER_INFO } from '../../consts';
 import { SearchComponent } from '../../components/SearchComponent';
+import genericStyles from '../../styles'
 
 export const Home = (): JSX.Element => {
   const [userInfo, setUserInfo] = useState(null)
@@ -22,8 +23,10 @@ export const Home = (): JSX.Element => {
   return (
     <Container>
       <Header imageUri={ userInfo && userInfo.photoUrl }/>
-      <Content>
-        <SearchComponent/>
+      <Content style={genericStyles.centeredContent}>
+        <Grid style={genericStyles.centeredGrid}>
+          <SearchComponent/>
+        </Grid>
       </Content>
     </Container>
   )

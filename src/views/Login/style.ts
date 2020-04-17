@@ -5,13 +5,9 @@ const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
   content: {
-    flex: 1,
     marginTop: Constants.statusBarHeight
-
   },
   grid: {
-    alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: 'column',
   },
   title: {

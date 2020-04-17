@@ -9,6 +9,8 @@ import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '../../consts';
 import {HOME} from '../../consts';
 const GOOGLE_IMAGE = require('../../../assets/google-icon.png')
 const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
+import genericStyles from '../../styles'
+
 
 const Login = ({navigation}:any):JSX.Element => {
 
@@ -46,8 +48,8 @@ const Login = ({navigation}:any):JSX.Element => {
   }
   return(
     <Container>
-      <Content contentContainerStyle={styles.content}>
-        <Grid style={styles.grid}>
+      <Content contentContainerStyle={[genericStyles.centeredContent, styles.content]}>
+        <Grid style={[genericStyles.centeredGrid, styles.grid]}>
           <Text style={styles.title}>Welcome!</Text>
           <Text style={styles.subtitle}>Sign in to continue</Text>
           <Button light style={styles.googleBtn} onPress={handleLoginPress}>
