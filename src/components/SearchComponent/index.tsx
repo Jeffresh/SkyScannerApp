@@ -19,6 +19,13 @@ export const SearchComponent = (props : any) => {
   const handleAdultsNumberChange = (adultsNumber: string) => setAdultsNumber(adultsNumber)
   const handleChildrenNumberChange = (childrenNumber: string) => setChildrenNumber(childrenNumber)
 
+  const searchButtonDisabled = () => {
+    return !originPlace ||
+      !destinationPlace ||
+      JSON.stringify(outBoundDate)== "{}" ||
+      !adultsNumber;
+  }
+
   return (
     <Form style={styles.form}>
       <Item>
@@ -70,7 +77,7 @@ export const SearchComponent = (props : any) => {
           <Picker.Item label="7" value="7"/>
         </Picker>
       </Item>
-      <Button style={styles.searchBtn}>
+      <Button style={styles.searchBtn} disabled={searchButtonDisabled()}>
         <Icon name="search" style={styles.searchIcon}/>
         <Text style={styles.searchBtnText}>Search</Text>
       </Button>
