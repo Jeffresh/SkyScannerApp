@@ -3,6 +3,7 @@ import {Form, Input, Item, Label, Icon, DatePicker, Picker, Button, Text} from '
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import {getLocationPayload, getLocations} from '../../redux/actions/itineraries';
+import { FixedList } from '../FixedList';
 
 export const SearchComponent = (props : any) => {
   const dispatch = useDispatch()
