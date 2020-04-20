@@ -53,6 +53,18 @@ export const SearchComponent = (props : any) => {
     }
   }
 
+  const handleOriginPlaceItemPress = (placeSelected: any) => {
+    // Todo select input value and close the autocomplete list
+    console.log(placeSelected)
+
+  }
+
+  const handleDestinationPlaceItemPress = (placeSelected: any) => {
+    console.log(placeSelected)
+    // Todo select input value and close the autocomplete list
+
+  }
+
   return (
     <Form style={styles.form}>
       <Item>
@@ -62,7 +74,8 @@ export const SearchComponent = (props : any) => {
           onChangeText={handleOriginPlaceChange}
           onKeyPress={handleOriginPlaceKeyPress}
           style={styles.input}/>
-        {showOriginPlaceList &&  <FixedList places={places} />}
+        {showOriginPlaceList &&
+        (<FixedList places={places} containerStyle={{top: 50}} onItemPress={handleOriginPlaceItemPress} /> )}
       </Item>
 
       <Item>
@@ -73,7 +86,8 @@ export const SearchComponent = (props : any) => {
           onChangeText={handleDestinationPlaceChange}
           onKeyPress={handleDestinationPlaceKeyPress}
           style={styles.input}/>
-        {showDestinationPlaceList &&  <FixedList places={places} />}
+        {showDestinationPlaceList &&
+        ( <FixedList places={places} containerStyle={{top: 50}} onItemPress={handleDestinationPlaceItemPress} /> )}
 
       </Item>
       <Item style={styles.datesContainer}>
