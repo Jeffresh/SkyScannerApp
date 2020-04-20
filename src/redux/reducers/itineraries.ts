@@ -7,16 +7,16 @@ import {
 export default function(state:any, action:any) {
   switch (action.type) {
     case GET_LOCATIONS_START:
-      return {}
+      return {...state}
       break;
     case GET_LOCATIONS_SUCCESS:
-      return {}
+      return {...state, places: action.results}
       break
     case GET_LOCATIONS_ERROR:
-      return {}
+      return {...state, places: null, error: action.error}
       break;
     default:
-      return {}
+      return {...state}
   }
 
 }

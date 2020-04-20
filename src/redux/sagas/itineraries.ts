@@ -7,7 +7,7 @@ import {
 import apiCall from '../api'
 
 import { getLocationPayload } from '../actions/itineraries'
-import { takeLatest, call } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 
 const country = 'ES'
 const currency = 'EUR'
@@ -19,9 +19,9 @@ export function* getLocations( payload :getLocationPayload ) {
     const url = `/autosuggest/v1.0/${country}/${currency}/${locale}/?query=${payload.payload.query}`
     const method = 'GET'
     const result = yield call(apiCall, url, method,null, null)
-    console.log(result.data)
-  } catch (e) {
-    console.log(e)
+    yield put({type: GET_LOCATIONS_SUCCESS, results: result.data.Places})
+  } catch (error) {
+    yield put({type: GET_LOCATIONS_ERROR, error})
   }
 }
 
