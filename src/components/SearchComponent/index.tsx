@@ -74,10 +74,9 @@ export const SearchComponent = (props : any) => {
           onChangeText={handleOriginPlaceChange}
           onKeyPress={handleOriginPlaceKeyPress}
           style={styles.input}/>
-        {showOriginPlaceList &&
-        (<FixedList places={places} containerStyle={{top: 50}} onItemPress={handleOriginPlaceItemPress} /> )}
       </Item>
-
+      {showOriginPlaceList &&
+      (<FixedList places={places} containerStyle={{top: 50}} onItemPress={handleOriginPlaceItemPress} /> )}
       <Item>
         <Icon ios='ios-airplane' android='md-airplane'/>
         <Input
@@ -86,10 +85,9 @@ export const SearchComponent = (props : any) => {
           onChangeText={handleDestinationPlaceChange}
           onKeyPress={handleDestinationPlaceKeyPress}
           style={styles.input}/>
-        {showDestinationPlaceList &&
-        ( <FixedList places={places} containerStyle={{top: 50}} onItemPress={handleDestinationPlaceItemPress} /> )}
-
       </Item>
+      {showDestinationPlaceList &&
+      ( <FixedList places={places} containerStyle={{top: 50}} onItemPress={handleDestinationPlaceItemPress} /> )}
       <Item style={styles.datesContainer}>
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker placeHolderText="Departure date" onDateChange={handleInBoundDateChange}/>
