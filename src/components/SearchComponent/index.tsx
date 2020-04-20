@@ -55,13 +55,13 @@ export const SearchComponent = (props : any) => {
 
   const handleOriginPlaceItemPress = (placeSelected: any) => {
     // Todo select input value and close the autocomplete list
-    console.log(placeSelected)
+    setShowOriginPlaceList(false)
 
   }
 
   const handleDestinationPlaceItemPress = (placeSelected: any) => {
-    console.log(placeSelected)
     // Todo select input value and close the autocomplete list
+    setShowDestinationPlaceList(false)
 
   }
 
