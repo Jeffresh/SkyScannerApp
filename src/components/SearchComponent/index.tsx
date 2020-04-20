@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {Form, Input, Item, Label, Icon, DatePicker, Picker, Button, Text} from 'native-base';
 import styles from './style';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {getLocationPayload, getLocations} from '../../redux/actions/itineraries';
 
 export const SearchComponent = (props : any) => {
   const dispatch = useDispatch()
+  const places  = useSelector((state) => state.itineraries.places)
+
   const [originPlace, setOriginPlace] = useState('')
   const [destinationPlace, setDestinationPlace] = useState('')
   const [outBoundDate, setOutBoundDate] = useState({} as Date)
