@@ -6,7 +6,7 @@ import { USER_INFO } from '../../consts';
 import { SearchComponent } from '../../components/SearchComponent';
 import genericStyles from '../../styles'
 
-export const Home = (): JSX.Element => {
+export const Home = ({navigation}:any): JSX.Element => {
   const [userInfo, setUserInfo] = useState(null)
 
   const loadUserInfo = async () => {
@@ -25,7 +25,7 @@ export const Home = (): JSX.Element => {
       <Header imageUri={ userInfo && userInfo.photoUrl }/>
       <Content style={genericStyles.centeredContent}>
         <Grid style={genericStyles.centeredGrid}>
-          <SearchComponent/>
+          <SearchComponent navigation={navigation}/>
         </Grid>
       </Content>
     </Container>

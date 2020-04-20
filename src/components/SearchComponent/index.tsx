@@ -4,8 +4,9 @@ import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import {getLocationPayload, getLocations} from '../../redux/actions/itineraries';
 import { FixedList } from '../FixedList';
+import {RESULTS} from '../../consts';
 
-export const SearchComponent = (props : any) => {
+export const SearchComponent = ({navigation} : any) => {
   const dispatch = useDispatch()
   const places  = useSelector((state) => state.itineraries.places)
   console.log(places)
@@ -36,7 +37,15 @@ export const SearchComponent = (props : any) => {
   }
 
   const handleSearchBtnClick = () => {
-    // dispatch(getLocations({} as getLocationPayload))
+    // TODO pass home parameters to intineraries
+    navigation.navigate(RESULTS, {
+      originPlace,
+      destinationPlace,
+      outBoundDate,
+      inBoundDate,
+      adultsNumber,
+      childrenNumber,
+    })
   }
 
   const handleOriginPlaceKeyPress = ({ nativeEvent }:any) => {
