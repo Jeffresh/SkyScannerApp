@@ -4,6 +4,8 @@ import {
   GET_LOCATIONS_ERROR
 } from '../../consts/actionTypes';
 
+import apiCalls from '../api'
+
 import { getLocationPayload } from '../actions/itineraries'
 import { takeLatest } from 'redux-saga/effects';
 
