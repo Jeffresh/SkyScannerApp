@@ -10,8 +10,8 @@ export const SearchComponent = (props : any) => {
   const places  = useSelector((state) => state.itineraries.places)
   console.log(places)
 
-  const [originPlace, setOriginPlace] = useState('')
-  const [destinationPlace, setDestinationPlace] = useState('')
+  const [originPlace, setOriginPlace] = useState({PlaceName:''} as any)
+  const [destinationPlace, setDestinationPlace] = useState({PlaceName:''} as any)
   const [outBoundDate, setOutBoundDate] = useState({} as Date)
   const [inBoundDate, setInBoundDate] = useState({} as Date)
   const [adultsNumber, setAdultsNumber] = useState('0')
@@ -20,7 +20,7 @@ export const SearchComponent = (props : any) => {
   const [showDestinationPlaceList, setShowDestinationPlaceList] = useState(false)
 
   const handleOriginPlaceChange = (origin:string) => setOriginPlace(origin)
-  const handleDestinationPlaceChange = (destination:string) => setDestinationPlace(destination)
+  const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( destination)
 
   const handleInBoundDateChange = (inboundDate: Date) => setInBoundDate(inboundDate)
   const handleOutBoundDateChange = (outboundDate: Date) => setOutBoundDate(outboundDate)
@@ -48,19 +48,19 @@ export const SearchComponent = (props : any) => {
 
   const handleDestinationPlaceKeyPress = ({ nativeEvent }:any) => {
     if(destinationPlace.length > 2) {
-      dispatch(getLocations({ query: destinationPlace }))
+      dispatch(getLocations({ query: destinationPlace}))
       setShowDestinationPlaceList(true)
     }
   }
 
   const handleOriginPlaceItemPress = (placeSelected: any) => {
-    // Todo select input value and close the autocomplete list
+    setOriginPlace(placeSelected)
     setShowOriginPlaceList(false)
 
   }
 
   const handleDestinationPlaceItemPress = (placeSelected: any) => {
-    // Todo select input value and close the autocomplete list
+    setDestinationPlace(placeSelected)
     setShowDestinationPlaceList(false)
 
   }
@@ -70,7 +70,7 @@ export const SearchComponent = (props : any) => {
       <Item>
         <Icon ios='ios-home' android='md-home'/>
         <Input
-          placeholder="Origin" value={originPlace}
+          placeholder="Origin" value={originPlace.PlaceName}
           onChangeText={handleOriginPlaceChange}
           onKeyPress={handleOriginPlaceKeyPress}
           style={styles.input}/>
@@ -81,13 +81,13 @@ export const SearchComponent = (props : any) => {
         <Icon ios='ios-airplane' android='md-airplane'/>
         <Input
           placeholder="Destination"
-          value={destinationPlace}
+          value={destinationPlace.PlaceName}
           onChangeText={handleDestinationPlaceChange}
           onKeyPress={handleDestinationPlaceKeyPress}
           style={styles.input}/>
       </Item>
       {showDestinationPlaceList &&
-      ( <FixedList places={places} containerStyle={{top: 120}} onItemPress={handleDestinationPlaceItemPress} /> )}
+      ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
       <Item style={styles.datesContainer}>
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker placeHolderText="Departure date" onDateChange={handleInBoundDateChange}/>
