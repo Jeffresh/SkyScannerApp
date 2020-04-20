@@ -1,14 +1,12 @@
 import { GET_LOCATIONS_START } from '../../consts/actionTypes';
 
 export interface getLocationPayload {
-  payload: {
-
-  }
+    query: string
 }
 
 export const getLocations = (payload: getLocationPayload) => (
   {
     type: GET_LOCATIONS_START,
-    payload: payload,
+    payload: payload
   }
 )

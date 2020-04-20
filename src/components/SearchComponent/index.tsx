@@ -30,15 +30,19 @@ export const SearchComponent = (props : any) => {
   }
 
   const handleSearchBtnClick = () => {
-    dispatch(getLocations({} as getLocationPayload))
+    // dispatch(getLocations({} as getLocationPayload))
   }
 
   const handleOriginPlaceKeyPress = ({ nativeEvent }:any) => {
-    console.log(10)
+    if(originPlace.length > 2) {
+      dispatch(getLocations({ query: originPlace }))
+    }
   }
 
   const handleDestinationPlaceKeyPress = ({ nativeEvent }:any) => {
-    console.log(20)
+    if(destinationPlace.length > 2) {
+      dispatch(getLocations({ query: destinationPlace }))
+    }
   }
 
   return (
