@@ -90,10 +90,18 @@ export const SearchComponent = (props : any) => {
       ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
       <Item style={styles.datesContainer}>
         <Icon ios="ios-calendar" android='md-calendar'/>
-        <DatePicker placeHolderText="Departure date" onDateChange={handleInBoundDateChange}/>
+        <DatePicker
+          placeHolderText="Departure date"
+          onDateChange={handleInBoundDateChange}
+          minimumDate={new Date()}
+        />
 
         <Icon ios="ios-calendar" android='md-calendar'/>
-        <DatePicker placeHolderText="Arrival date (optional)" onDateChange={handleOutBoundDateChange}/>
+        <DatePicker
+          placeHolderText="Arrival date (optional)"
+          onDateChange={handleOutBoundDateChange}
+          minimumDate={inBoundDate}
+        />
       </Item>
       <Item style={styles.pickersContainer}>
         <Icon name='person'/>
