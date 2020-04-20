@@ -33,15 +33,32 @@ export const SearchComponent = (props : any) => {
     dispatch(getLocations({} as getLocationPayload))
   }
 
+  const handleOriginPlaceKeyPress = ({ nativeEvent }:any) => {
+    console.log(10)
+  }
+
+  const handleDestinationPlaceKeyPress = ({ nativeEvent }:any) => {
+    console.log(20)
+  }
+
   return (
     <Form style={styles.form}>
       <Item>
         <Icon ios='ios-home' android='md-home'/>
-        <Input placeholder="Origin" value={originPlace} onChangeText={handleOriginPlaceChange} style={styles.input}/>
+        <Input
+          placeholder="Origin" value={originPlace}
+          onChangeText={handleOriginPlaceChange}
+          onKeyPress={handleOriginPlaceKeyPress}
+          style={styles.input}/>
       </Item>
       <Item>
         <Icon ios='ios-airplane' android='md-airplane'/>
-        <Input placeholder="Destination" value={destinationPlace} onChangeText={handleDestinationPlaceChange} style={styles.input}/>
+        <Input
+          placeholder="Destination"
+          value={destinationPlace}
+          onChangeText={handleDestinationPlaceChange}
+          onKeyPress={handleDestinationPlaceKeyPress}
+          style={styles.input}/>
       </Item>
       <Item style={styles.datesContainer}>
         <Icon ios="ios-calendar" android='md-calendar'/>
