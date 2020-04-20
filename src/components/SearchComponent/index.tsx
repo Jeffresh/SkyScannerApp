@@ -8,6 +8,7 @@ import { FixedList } from '../FixedList';
 export const SearchComponent = (props : any) => {
   const dispatch = useDispatch()
   const places  = useSelector((state) => state.itineraries.places)
+  console.log(places)
 
   const [originPlace, setOriginPlace] = useState('')
   const [destinationPlace, setDestinationPlace] = useState('')
@@ -15,6 +16,8 @@ export const SearchComponent = (props : any) => {
   const [inBoundDate, setInBoundDate] = useState({} as Date)
   const [adultsNumber, setAdultsNumber] = useState('0')
   const [childrenNumber, setChildrenNumber] = useState('0')
+  const [showOriginPlaceList, setShowOriginPlaceList] = useState(false)
+  const [showDestinationPlaceList, setShowDestinationPlaceList] = useState(false)
 
   const handleOriginPlaceChange = (origin:string) => setOriginPlace(origin)
   const handleDestinationPlaceChange = (destination:string) => setDestinationPlace(destination)
@@ -39,12 +42,14 @@ export const SearchComponent = (props : any) => {
   const handleOriginPlaceKeyPress = ({ nativeEvent }:any) => {
     if(originPlace.length > 2) {
       dispatch(getLocations({ query: originPlace }))
+      setShowOriginPlaceList(true)
     }
   }
 
   const handleDestinationPlaceKeyPress = ({ nativeEvent }:any) => {
     if(destinationPlace.length > 2) {
       dispatch(getLocations({ query: destinationPlace }))
+      setShowDestinationPlaceList(true)
     }
   }
 
@@ -57,7 +62,9 @@ export const SearchComponent = (props : any) => {
           onChangeText={handleOriginPlaceChange}
           onKeyPress={handleOriginPlaceKeyPress}
           style={styles.input}/>
+        {showOriginPlaceList &&  <FixedList places={places} />}
       </Item>
+
       <Item>
         <Icon ios='ios-airplane' android='md-airplane'/>
         <Input
@@ -66,6 +73,8 @@ export const SearchComponent = (props : any) => {
           onChangeText={handleDestinationPlaceChange}
           onKeyPress={handleDestinationPlaceKeyPress}
           style={styles.input}/>
+        {showDestinationPlaceList &&  <FixedList places={places} />}
+
       </Item>
       <Item style={styles.datesContainer}>
         <Icon ios="ios-calendar" android='md-calendar'/>

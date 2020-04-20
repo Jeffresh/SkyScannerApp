@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Content, List, ListItem, Text, Spinner } from 'native-base';
+import {PRIMARY} from '../../consts';
 
 export const FixedList = ({places}:any):JSX.Element => {
   if(!places || !places.length){
     return(
-      <Spinner size={30} />
+      <Spinner color={PRIMARY}/>
     )
   }
   return (
