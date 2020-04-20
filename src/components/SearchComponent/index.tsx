@@ -87,7 +87,7 @@ export const SearchComponent = (props : any) => {
           style={styles.input}/>
       </Item>
       {showDestinationPlaceList &&
-      ( <FixedList places={places} containerStyle={{top: 50}} onItemPress={handleDestinationPlaceItemPress} /> )}
+      ( <FixedList places={places} containerStyle={{top: 120}} onItemPress={handleDestinationPlaceItemPress} /> )}
       <Item style={styles.datesContainer}>
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker placeHolderText="Departure date" onDateChange={handleInBoundDateChange}/>
