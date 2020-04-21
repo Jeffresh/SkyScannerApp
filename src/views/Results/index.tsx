@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import {useDispatch, useSelector } from 'react-redux';
 import {View, Text} from 'react-native';
 import {getItineraries} from '../../redux/actions/itineraries';
-import {Container, Content} from 'native-base';
+import {Card, CardItem, Container, Content, Body} from 'native-base';
 import { Itinerary } from '../../components/Itinerary'
 import { Header } from '../../components/Header';
 
@@ -13,15 +13,36 @@ export default (navigation : any): JSX.Element =>
   const [hasFetched, setHasFetched] = useState(false)
   const itineraries = useSelector(state => state.itineraries.itineraries)
   console.log(itineraries)
+
   const renderItineraries = ():JSX.Element => {
     if(itineraries && itineraries.Carriers) {
        return itineraries.Carriers.map((itinerary: any, index: any) => (
         <Itinerary key={index} Itinerary={itinerary}/>
         ))
     }
-    else{
       return <></>
+
+  }
+
+  const renderFlightStations = ():JSX.Element => {
+    if(itineraries && itineraries.Places) {
+      return (
+        <Fragment>
+          <CardItem>
+            <Text>Origin Place</Text>
+            <Text>City Name:{itineraries.Places[0].CityName}</Text>
+            <Text>Airport :{itineraries.Places[0].Name}</Text>
+          </CardItem>
+          <CardItem>
+            <Text>Destination Place: </Text>
+            <Text>City Name:{itineraries.Places[1].CityName}</Text>
+            <Text>Airport :{itineraries.Places[1].Name}</Text>
+          </CardItem>
+        </Fragment>
+      )
     }
+    return <></>
+
   }
 
   console.log(itineraries)
@@ -55,6 +76,9 @@ export default (navigation : any): JSX.Element =>
   return(
       <Container>
         <Header />
+        <Content>
+          {renderFlightStations()}
+        </Content>
         <Content>
           {renderItineraries()}
         </Content>
