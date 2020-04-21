@@ -5,6 +5,8 @@ import {getItineraries} from '../../redux/actions/itineraries';
 import {Card, CardItem, Container, Content, Body} from 'native-base';
 import { Itinerary } from '../../components/Itinerary'
 import { Header } from '../../components/Header';
+import styles from './style';
+
 
 export default (navigation : any): JSX.Element =>
 {
@@ -28,15 +30,15 @@ export default (navigation : any): JSX.Element =>
     if(itineraries && itineraries.Places) {
       return (
         <Fragment>
-          <CardItem>
-            <Text>Origin Place</Text>
-            <Text>City Name:{itineraries.Places[0].CityName}</Text>
-            <Text>Airport :{itineraries.Places[0].Name}</Text>
+          <CardItem style={styles.cardItem}>
+            <Text style={styles.placeTitle}>Origin Place</Text>
+            <Text style={styles.label}>City Name:{itineraries.Places[0].CityName}</Text>
+            <Text style={styles.label}>Airport :{itineraries.Places[0].Name}</Text>
           </CardItem>
-          <CardItem>
-            <Text>Destination Place: </Text>
-            <Text>City Name:{itineraries.Places[1].CityName}</Text>
-            <Text>Airport :{itineraries.Places[1].Name}</Text>
+          <CardItem style={styles.cardItem}>
+            <Text style={styles.placeTitle}>Destination Place: </Text>
+            <Text style={styles.label}>City Name:{itineraries.Places[1].CityName}</Text>
+            <Text style={styles.label}>Airport :{itineraries.Places[1].Name}</Text>
           </CardItem>
         </Fragment>
       )

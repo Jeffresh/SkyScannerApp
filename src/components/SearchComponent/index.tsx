@@ -7,6 +7,7 @@ import {getLocationPayload, getLocations} from '../../redux/actions/itineraries'
 import { FixedList } from '../FixedList';
 import {RESULTS} from '../../consts';
 
+
 export const SearchComponent = ({navigation} : any) => {
   const dispatch = useDispatch()
   const places  = useSelector((state) => state.itineraries.places)
