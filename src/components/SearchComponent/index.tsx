@@ -23,8 +23,8 @@ export const SearchComponent = ({navigation} : any) => {
   const handleOriginPlaceChange = (origin:string) => setOriginPlace(origin)
   const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( destination)
 
-  const handleInBoundDateChange = (inboundDate: Date) => setInBoundDate(inboundDate)
   const handleOutBoundDateChange = (outboundDate: Date) => setOutBoundDate(outboundDate)
+  const handleInBoundDateChange = (inboundDate: Date) => setInBoundDate(inboundDate)
 
   const handleAdultsNumberChange = (adultsNumber: string) => setAdultsNumber(adultsNumber)
   const handleChildrenNumberChange = (childrenNumber: string) => setChildrenNumber(childrenNumber)
@@ -32,7 +32,7 @@ export const SearchComponent = ({navigation} : any) => {
   const searchButtonDisabled = () => {
     return !originPlace ||
       !destinationPlace ||
-      JSON.stringify(inBoundDate)== "{}" ||
+      JSON.stringify(outBoundDate)== "{}" ||
       !adultsNumber;
   }
 
@@ -101,15 +101,15 @@ export const SearchComponent = ({navigation} : any) => {
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker
           placeHolderText="Departure date"
-          onDateChange={handleInBoundDateChange}
+          onDateChange={handleOutBoundDateChange}
           minimumDate={new Date()}
         />
 
         <Icon ios="ios-calendar" android='md-calendar'/>
         <DatePicker
           placeHolderText="Arrival date (optional)"
-          onDateChange={handleOutBoundDateChange}
-          minimumDate={inBoundDate}
+          onDateChange={handleInBoundDateChange}
+          minimumDate={outBoundDate}
         />
       </Item>
       <Item style={styles.pickersContainer}>
