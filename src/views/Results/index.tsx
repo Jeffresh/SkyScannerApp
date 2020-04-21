@@ -1,5 +1,6 @@
 import React from 'react'
 import {View, Text} from 'react-native';
+import {getItineraries} from '../../redux/actions/itineraries';
 
 export default (navigation : any): JSX.Element =>
 {
