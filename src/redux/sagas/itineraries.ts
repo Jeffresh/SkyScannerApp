@@ -30,9 +30,16 @@ export function* getLocations({payload}:any) {
 
 export function* getItineraries({payload}:any){
   try{
+    const url = `/browsequotes/v1.0/${country}/${currency}/${locale}/${payload.originPlace}/${payload.destinationPlace}/${payload.outBoundDate}/?query=${payload.inBoundDate}`
+    const method='GET'
+    const itineraries = yield call(apiCall, url, method,null,null)
+    if(!itineraries.data) {
+      yield put({type: GET_ITINERARIES_ERROR, error: 'Results dont found'})
+    }
+      yield put({type: GET_ITINERARIES_SUCCESS, itineraries: itineraries.data})
 
   }catch (error) {
-
+    yield put({type: GET_ITINERARIES_ERROR, error})
   }
 }
 
