@@ -9,7 +9,7 @@ import {RESULTS} from '../../consts';
 export const SearchComponent = ({navigation} : any) => {
   const dispatch = useDispatch()
   const places  = useSelector((state) => state.itineraries.places)
-  console.log(places)
+  // console.log(places)
 
   const [originPlace, setOriginPlace] = useState({PlaceName:''} as any)
   const [destinationPlace, setDestinationPlace] = useState({PlaceName:''} as any)
@@ -20,8 +20,8 @@ export const SearchComponent = ({navigation} : any) => {
   const [showOriginPlaceList, setShowOriginPlaceList] = useState(false)
   const [showDestinationPlaceList, setShowDestinationPlaceList] = useState(false)
 
-  const handleOriginPlaceChange = (origin:string) => setOriginPlace(origin)
-  const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( destination)
+  const handleOriginPlaceChange = (origin:string) => setOriginPlace({PlaceName: origin})
+  const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( {PlaceName: destination})
 
   const handleOutBoundDateChange = (outboundDate: Date) => setOutBoundDate(outboundDate)
   const handleInBoundDateChange = (inboundDate: Date) => setInBoundDate(inboundDate)
@@ -49,15 +49,15 @@ export const SearchComponent = ({navigation} : any) => {
   }
 
   const handleOriginPlaceKeyPress = ({ nativeEvent }:any) => {
-    if(originPlace.length > 2) {
-      dispatch(getLocations({ query: originPlace }))
+    if(originPlace.PlaceName.length > 2) {
+      dispatch(getLocations({ query: originPlace.PlaceName }))
       setShowOriginPlaceList(true)
     }
   }
 
   const handleDestinationPlaceKeyPress = ({ nativeEvent }:any) => {
-    if(destinationPlace.length > 2) {
-      dispatch(getLocations({ query: destinationPlace}))
+    if(destinationPlace.PlaceName.length > 2) {
+      dispatch(getLocations({ query: destinationPlace.PlaceName}))
       setShowDestinationPlaceList(true)
     }
   }
@@ -79,7 +79,8 @@ export const SearchComponent = ({navigation} : any) => {
       <Item>
         <Icon ios='ios-home' android='md-home'/>
         <Input
-          placeholder="Origin" value={originPlace.PlaceName}
+          placeholder="Origin"
+          value={originPlace.PlaceName}
           onChangeText={handleOriginPlaceChange}
           onKeyPress={handleOriginPlaceKeyPress}
           style={styles.input}/>
