@@ -40,7 +40,7 @@ export const SearchComponent = ({navigation} : any) => {
   const handleSearchBtnClick = () => {
     navigation.navigate(RESULTS, {
       originPlace: originPlace.PlaceId,
-      destinationPlace:originPlace.PlaceId,
+      destinationPlace:destinationPlace.PlaceId,
       outBoundDate: moment(outBoundDate).format('YYYY-MM-DD'),
       inBoundDate: moment(inBoundDate).format('YYYY-MM-DD'),
       adultsNumber,
