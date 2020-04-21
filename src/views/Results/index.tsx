@@ -19,7 +19,7 @@ export default (navigation : any): JSX.Element =>
   const renderItineraries = ():JSX.Element => {
     if(itineraries && itineraries.Carriers) {
        return itineraries.Carriers.map((itinerary: any, index: any) => (
-        <Itinerary key={index} Itinerary={itinerary}/>
+        <Itinerary key={index} Itinerary={itinerary} flightNumber={index+1}/>
         ))
     }
       return <></>
