@@ -5,8 +5,12 @@ import {getItineraries} from '../../redux/actions/itineraries';
 
 export default (navigation : any): JSX.Element =>
 {
-  const[hasFetched, setHasFetched] = useState(false)
   const dispatch = useDispatch()
+
+  const [hasFetched, setHasFetched] = useState(false)
+  const itineraries = useSelector(state => state.itineraries.itineraries)
+
+  console.log(itineraries)
 
   const {
     route: {
