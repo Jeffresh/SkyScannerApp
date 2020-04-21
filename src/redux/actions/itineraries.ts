@@ -13,5 +13,5 @@ export const getLocations = (payload: getLocationPayload) => (
 
 export const getItineraries = (payload:any) => ({
   type: GET_ITINERARIES_START,
-  payload
+  payload: payload
 })

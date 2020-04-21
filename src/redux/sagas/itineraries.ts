@@ -1,7 +1,10 @@
 import {
   GET_LOCATIONS_START,
   GET_LOCATIONS_SUCCESS,
-  GET_LOCATIONS_ERROR
+  GET_LOCATIONS_ERROR,
+  GET_ITINERARIES_START,
+  GET_ITINERARIES_SUCCESS,
+  GET_ITINERARIES_ERROR
 } from '../../consts/actionTypes';
 
 import apiCall from '../api'
@@ -13,10 +16,10 @@ const country = 'ES'
 const currency = 'EUR'
 const locale = 'en-US'
 
-export function* getLocations( payload :getLocationPayload ) {
+export function* getLocations({payload}:any) {
 
   try {
-    const url = `/autosuggest/v1.0/${country}/${currency}/${locale}/?query=${payload.payload.query}`
+    const url = `/autosuggest/v1.0/${country}/${currency}/${locale}/?query=${payload.query}`
     const method = 'GET'
     const result = yield call(apiCall, url, method,null, null)
     yield put({type: GET_LOCATIONS_SUCCESS, results: result.data.Places})
@@ -25,7 +28,16 @@ export function* getLocations( payload :getLocationPayload ) {
   }
 }
 
+export function* getItineraries({payload}:any){
+  try{
+
+  }catch (error) {
+
+  }
+}
+
 export default function * itineraries() {
   yield takeLatest(GET_LOCATIONS_START, getLocations)
+  yield takeLatest(GET_ITINERARIES_START, getItineraries)
 }
 
