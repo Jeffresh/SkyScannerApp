@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Form, Input, Item, Label, Icon, DatePicker, Picker, Button, Text} from 'native-base';
+import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import {getLocationPayload, getLocations} from '../../redux/actions/itineraries';
@@ -37,12 +38,11 @@ export const SearchComponent = ({navigation} : any) => {
   }
 
   const handleSearchBtnClick = () => {
-    // TODO pass home parameters to intineraries
     navigation.navigate(RESULTS, {
-      originPlace,
-      destinationPlace,
-      outBoundDate,
-      inBoundDate,
+      originPlace: originPlace.PlaceId,
+      destinationPlace:originPlace.PlaceId,
+      outBoundDate: moment(outBoundDate).format('YYYY-MM-DD'),
+      inBoundDate: moment(inBoundDate).format('YYYY-MM-DD'),
       adultsNumber,
       childrenNumber,
     })
