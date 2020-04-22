@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import {useDispatch, useSelector } from 'react-redux';
 import {getItineraries} from '../../redux/actions/itineraries';
-import {CardItem, Container, Content, Spinner, Text} from 'native-base';
+import {CardItem, Container, Content, Grid, Spinner, Text} from 'native-base';
 import { Itinerary } from '../../components/Itinerary'
 import { Header } from '../../components/Header';
 import styles from './style';
 import {SECONDARY} from '../../consts';
+import genericStyles from '../../styles'
 
 
 export default (navigation : any): JSX.Element =>
@@ -76,43 +77,53 @@ export default (navigation : any): JSX.Element =>
     }
   })
 
-  if(itineraries && !itineraries.length) {
-    return (
-      <Container>
-        <Content>
-          <Text> :( Results not found</Text>
-        </Content>
-      </Container>
-    )
-  } else if(!itineraries && !error) {
-    return (
-      <Container>
-        <Content>
+  const renderContent = () => {
+    let content;
+
+    if(!itineraries && !error) {
+      content = (
+        <Fragment>
           <Spinner  color={SECONDARY}/>
           <Text> Fetching results...</Text>
-        </Content>
-      </Container>
-    )
-  }
-  else if(error) {
+        </Fragment>
+      )
+    }
+    else if(itineraries && !itineraries.Carriers.length) {
+      content = <Text> :( Results not found </Text>
+
+    }
+    else if(error) {
+      content = <Text> Oops, something went wrong. Try again</Text>
+    }
+
+      if (!content) {
+        return (
+          <Fragment>
+            <Content>
+              {renderFlightStations()}
+            </Content>
+            <Content>
+              {renderItineraries()}
+            </Content>
+          </Fragment>
+        )
+      }
+
     return (
-      <Container>
-        <Content>
-          <Text> Oops, something went wrong. Try again</Text>
-        </Content>
-      </Container>
+      <Content contentContainerStyle={genericStyles.centeredGrid}>
+        <Grid style={[genericStyles.centeredGrid, styles.grid]}>
+          {content}
+        </Grid>
+      </Content>
     )
+
   }
+
 
   return(
       <Container>
         <Header />
-        <Content>
-          {renderFlightStations()}
-        </Content>
-        <Content>
-          {renderItineraries()}
-        </Content>
+          {renderContent()}
       </Container>
   )
 }
