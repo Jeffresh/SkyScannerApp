@@ -1,10 +1,10 @@
 import React, {SetStateAction, useEffect, useState} from 'react'
 import {Container, Content, View, Text, Spinner, Thumbnail, Button} from "native-base"
 import styles from './style';
-import {getItem} from '../../utils/storage';
-import {SECONDARY, USER_INFO} from '../../consts';
+import {getItem, clearAll} from '../../utils/storage';
+import {SECONDARY, USER_INFO, LOGIN} from '../../consts';
 
-export const Profile = () => {
+export const Profile = ({navigation}:any) => {
   const [userInfo, setUserInfo] = useState(null)
 
   const loadUserInfo = async () => {
@@ -17,6 +17,11 @@ export const Profile = () => {
       loadUserInfo()
     }
   },[userInfo])
+
+  const handleLogoutPress = async () => {
+    await clearAll()
+    navigation.navigate(LOGIN)
+  }
 
   if(!userInfo) {
     return (
@@ -33,7 +38,7 @@ export const Profile = () => {
         <View style={styles.infoContainer}>
           <Text>{userInfo.name}</Text>
           <Text>{userInfo.email}</Text>
-          <Button style={styles.logoutBtn}>
+          <Button style={styles.logoutBtn} onPress={handleLogoutPress}>
             <Text>log out</Text>
           </Button>
         </View>
