@@ -1,8 +1,7 @@
 import React, {SetStateAction, useEffect, useState} from 'react'
-import {Header as NBHeader, Left, Body, Right, Thumbnail, Icon} from 'native-base'
-import { PRIMARY_DARK, USER_INFO } from '../../consts';
+import {Header as NBHeader, Left, Body, Right, Thumbnail, Icon, Button} from 'native-base'
+import {PRIMARY_DARK, PROFILE, USER_INFO} from '../../consts';
 import { getItem } from '../../utils/storage';
-import {NavigationActions} from 'react-navigation'
 
 import styles from './style';
 
@@ -21,8 +20,11 @@ export const Header = ({showBack, navigation}: any): JSX.Element => {
   },[userInfo])
 
   const handleBackPress = () => {
-    console.log(navigation)
     navigation.navigation.goBack();
+  }
+
+  const handleProfileImagePress = () => {
+    navigation.navigate(PROFILE)
   }
 
 
@@ -39,7 +41,9 @@ export const Header = ({showBack, navigation}: any): JSX.Element => {
       </Left>
       <Body/>
       <Right>
-        <Thumbnail source={{ uri: userInfo && userInfo.photoUrl }} small/>
+        <Button  onPress={handleProfileImagePress} transparent>
+          <Thumbnail source={{ uri: userInfo && userInfo.photoUrl }} small />
+        </Button>
       </Right>
     </NBHeader>
   );

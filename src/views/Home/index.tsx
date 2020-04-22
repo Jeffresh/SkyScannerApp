@@ -8,7 +8,7 @@ export const Home = ({navigation}:any): JSX.Element => {
 
   return (
     <Container>
-      <Header />
+      <Header navigation={navigation} />
       <Content style={genericStyles.centeredContent}>
         <Grid style={genericStyles.centeredGrid}>
           <SearchComponent navigation={navigation}/>
