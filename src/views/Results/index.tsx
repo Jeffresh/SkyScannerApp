@@ -122,7 +122,7 @@ export default (navigation : any): JSX.Element =>
 
   return(
       <Container>
-        <Header />
+        <Header navigation={navigation} showBack/>
           {renderContent()}
       </Container>
   )
