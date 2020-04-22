@@ -1,6 +1,7 @@
-import { StyleSheet } from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import Constants from 'expo-constants'
 import {PRIMARY} from '../../consts';
+const { width }  = Dimensions.get("window")
 
 const styles = StyleSheet.create({
   content: {
@@ -19,6 +20,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 12,
   },
+  profileImage: {
+    width: width/3,
+    height: width/3,
+  }
 
 })
 
