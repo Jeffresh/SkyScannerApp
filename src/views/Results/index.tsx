@@ -78,10 +78,10 @@ export default (navigation : any): JSX.Element =>
   })
 
   const renderContent = () => {
-    let content;
+    let messageContent;
 
     if(!itineraries && !error) {
-      content = (
+      messageContent = (
         <Fragment>
           <Spinner  color={SECONDARY}/>
           <Text> Fetching results...</Text>
@@ -89,14 +89,14 @@ export default (navigation : any): JSX.Element =>
       )
     }
     else if(itineraries && !itineraries.Carriers.length) {
-      content = <Text> :( Results not found </Text>
+      messageContent = <Text> :( Results not found </Text>
 
     }
     else if(error) {
-      content = <Text> Oops, something went wrong. Try again</Text>
+      messageContent = <Text> Oops, something went wrong. Try again</Text>
     }
 
-      if (!content) {
+      if (!messageContent) {
         return (
           <Fragment>
             <Content>
@@ -112,7 +112,7 @@ export default (navigation : any): JSX.Element =>
     return (
       <Content contentContainerStyle={genericStyles.centeredGrid}>
         <Grid style={[genericStyles.centeredGrid, styles.grid]}>
-          {content}
+          {messageContent}
         </Grid>
       </Content>
     )
