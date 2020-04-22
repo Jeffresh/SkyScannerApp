@@ -6,11 +6,11 @@ export const Profile = () => {
 
   return (
     <Container>
-      <Content>
-        <View >
+      <Content contentContainerStyle={styles.content}>
+        <View style={styles.imageContainer} >
           <Text> Avatar</Text>
         </View>
-        <View>
+        <View style={styles.infoContainer}>
           <Text>Information</Text>
         </View>
       </Content>
