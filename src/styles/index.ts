@@ -6,6 +6,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   centeredGrid: {
+    flex:1,
     alignItems: 'center',
     justifyContent: 'center',
   }
