@@ -19,7 +19,7 @@ export default function(state:any, action:any) {
       return {...state, places: null, error: action.error}
       break;
     case GET_ITINERARIES_START:
-      return {...state, itineraries:null}
+      return {...state, itineraries:null, error: null}
       break;
     case GET_ITINERARIES_SUCCESS:
       return {...state, itineraries: action.itineraries}
