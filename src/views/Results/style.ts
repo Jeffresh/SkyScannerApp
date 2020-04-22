@@ -2,9 +2,10 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   cardItem: {
+    marginTop: 30,
     flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start'
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   placeTitle:{
     fontSize: 18,
