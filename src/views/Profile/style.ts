@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import Constants from 'expo-constants'
-import {PRIMARY} from '../../consts';
+import {PRIMARY, SECONDARY} from '../../consts';
 const { width }  = Dimensions.get("window")
 
 const styles = StyleSheet.create({
@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
   profileImage: {
     width: width/3,
     height: width/3,
+  },
+  logoutBtn: {
+    backgroundColor: SECONDARY,
+    marginTop: 2,
   }
 
 })
