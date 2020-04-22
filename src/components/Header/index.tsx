@@ -1,5 +1,5 @@
 import React, {SetStateAction, useEffect, useState} from 'react'
-import {Header as NBHeader, Left, Body, Right, Thumbnail} from 'native-base'
+import {Header as NBHeader, Left, Body, Right, Thumbnail, Icon} from 'native-base'
 import { PRIMARY_DARK, USER_INFO } from '../../consts';
 import { getItem } from '../../utils/storage';
 
@@ -22,7 +22,9 @@ export const Header = ({imageUri}: any): JSX.Element => {
 
   return (
     <NBHeader androidStatusBarColor={PRIMARY_DARK} style={styles.header}>
-      <Left/>
+      <Left>
+        <Icon android="md-arrow-back" ios="ios-arrow-back" style={styles.backIcon}/>
+      </Left>
       <Body/>
       <Right>
         <Thumbnail source={{ uri: userInfo && userInfo.photoUrl }} small/>
