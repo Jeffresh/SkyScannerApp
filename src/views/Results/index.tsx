@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import {useDispatch, useSelector } from 'react-redux';
 import {getItineraries} from '../../redux/actions/itineraries';
-import {CardItem, Container, Content, Text} from 'native-base';
+import {CardItem, Container, Content, Spinner, Text} from 'native-base';
 import { Itinerary } from '../../components/Itinerary'
 import { Header } from '../../components/Header';
 import styles from './style';
+import {SECONDARY} from '../../consts';
 
 
 export default (navigation : any): JSX.Element =>
@@ -13,7 +14,7 @@ export default (navigation : any): JSX.Element =>
 
   const [hasFetched, setHasFetched] = useState(false)
   const itineraries = useSelector(state => state.itineraries.itineraries)
-  console.log(itineraries)
+  const error = useSelector(state => state.itineraries.error)
 
   const renderItineraries = ():JSX.Element => {
     if(itineraries && itineraries.Carriers) {
@@ -45,7 +46,7 @@ export default (navigation : any): JSX.Element =>
     return <></>
 
   }
-
+  console.log("Itineraries")
   console.log(itineraries)
 
   const {
@@ -74,6 +75,35 @@ export default (navigation : any): JSX.Element =>
       setHasFetched(true)
     }
   })
+
+  if(itineraries && !itineraries.length) {
+    return (
+      <Container>
+        <Content>
+          <Text> :( Results not found</Text>
+        </Content>
+      </Container>
+    )
+  } else if(!itineraries && !error) {
+    return (
+      <Container>
+        <Content>
+          <Spinner  color={SECONDARY}/>
+          <Text> Fetching results...</Text>
+        </Content>
+      </Container>
+    )
+  }
+  else if(error) {
+    return (
+      <Container>
+        <Content>
+          <Text> Oops, something went wrong. Try again</Text>
+        </Content>
+      </Container>
+    )
+  }
+
   return(
       <Container>
         <Header />
