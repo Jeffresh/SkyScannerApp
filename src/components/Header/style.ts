@@ -9,5 +9,6 @@ export default StyleSheet.create({
   },
   backIcon: {
     color: WHITE,
+    marginLeft: 12,
   }
 })
