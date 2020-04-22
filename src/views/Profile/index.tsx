@@ -1,4 +1,19 @@
 import React from 'react'
-import {View, Text} from 'react-native';
+import {Container, Content, View, Text} from "native-base"
+import styles from './style';
 
-export default (): JSX.Element =>  <View><Text>Profile</Text></View>
+export const Profile = () => {
+
+  return (
+    <Container>
+      <Content>
+        <View >
+          <Text> Avatar</Text>
+        </View>
+        <View>
+          <Text>Information</Text>
+        </View>
+      </Content>
+    </Container>
+  )
+}
