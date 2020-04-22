@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import Constants from 'expo-constants'
-import {PRIMARY, SECONDARY} from '../../consts';
+import {PRIMARY, SECONDARY, WHITE} from '../../consts';
 const { width }  = Dimensions.get("window")
 
 const styles = StyleSheet.create({
@@ -27,6 +27,14 @@ const styles = StyleSheet.create({
   logoutBtn: {
     backgroundColor: SECONDARY,
     marginTop: 2,
+  },
+  backIcon: {
+    color: WHITE
+  },
+  backButton: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
   }
 
 })
