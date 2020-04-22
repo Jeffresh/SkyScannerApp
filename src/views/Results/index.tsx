@@ -1,8 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import {useDispatch, useSelector } from 'react-redux';
-import {View, Text} from 'react-native';
 import {getItineraries} from '../../redux/actions/itineraries';
-import {Card, CardItem, Container, Content, Body} from 'native-base';
+import {CardItem, Container, Content, Text} from 'native-base';
 import { Itinerary } from '../../components/Itinerary'
 import { Header } from '../../components/Header';
 import styles from './style';
