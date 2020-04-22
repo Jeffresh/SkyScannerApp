@@ -31,7 +31,8 @@ export const Profile = () => {
           <Thumbnail source={{uri: userInfo.photoUrl}} style={styles.profileImage} />
         </View>
         <View style={styles.infoContainer}>
-          <Text>Information</Text>
+          <Text>{userInfo.name}</Text>
+          <Text>{userInfo.email}</Text>
         </View>
       </Content>
     </Container>
