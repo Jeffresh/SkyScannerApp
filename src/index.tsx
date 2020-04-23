@@ -3,8 +3,9 @@ import { RootStack as Routes } from './routes';
 import { Provider } from 'react-redux'
 import Store from './store'
 import * as Font from 'expo-font'
-import {Spinner} from 'native-base';
+import {Container, Content, Grid, Spinner, Text} from 'native-base';
 import { ROBOTO_FONT } from './constants';
+import styles from './styles'
 
 const store = Store()
 
@@ -25,7 +26,15 @@ export default (): JSX.Element => {
 
 
   if(!fontsLoaded) {
-    return <Spinner color="red"/>
+    return (
+      <Container>
+        <Content contentContainerStyle={styles.centeredContent}>
+          <Grid style ={styles.centeredGrid}>
+            <Spinner color = 'green'/>
+          </Grid>
+        </Content>
+      </Container>
+    )
   }
   return (
     <Provider store={store}>
