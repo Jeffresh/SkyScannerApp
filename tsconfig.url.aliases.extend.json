@@ -6,11 +6,11 @@
     "paths": {
       "~Api/*": ["services/api/*"],
       "~Api": ["services/api"],
-      "~Assets/*": ["assets/*"],
+      "~Assets/*": ["../assets/*"],
       "~Components/*": ["components/*"],
       "~Hooks/*": ["hooks/*"],
       "~Routes*": ["routes/*", "routes"],
-      "~Screens/*": ["screens/*"],
+      "~Views/*": ["views/*", "views"],
       "~Store": ["store"],
       "~Store/*": ["store/*"],
       "~Styles" : ["styles"],
