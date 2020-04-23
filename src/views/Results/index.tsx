@@ -5,7 +5,7 @@ import {CardItem, Container, Content, Grid, Spinner, Text} from 'native-base';
 import { Itinerary } from '~Components/Itinerary'
 import { Header } from '~Components/Header';
 import styles from './style';
-import {SECONDARY} from '../../constants';
+import {SECONDARY} from '~Constants';
 import genericStyles from '~Styles'
 
 

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import  Store  from '~Store'
 import * as Font from 'expo-font'
 import {Container, Content, Grid, Spinner, Text} from 'native-base';
-import { ROBOTO_FONT } from './constants';
+import { ROBOTO_FONT } from '~Constants';
 import genericStyles from '~Styles'
 const store = Store()
 

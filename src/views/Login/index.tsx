@@ -5,8 +5,8 @@ import * as Google from 'expo-google-app-auth'
 import styles from './style';
 import { saveItem } from '~Utils/storage';
 import environment from '../../../env'
-import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '../../constants';
-import {HOME} from '../../constants';
+import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '~Constants';
+import {HOME} from '~Constants';
 const GOOGLE_IMAGE = require('~Assets/google-icon.png')
 const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
 import genericStyles from '~Styles'

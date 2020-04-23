@@ -7,7 +7,7 @@ import {
   HOME,
   RESULTS,
   PROFILE,
-} from '../constants';
+} from '~Constants';
 import  Login from '~Views/Login'
 import { Home } from '~Views/Home'
 import LoadingPage from '~Views/LoadingPage'

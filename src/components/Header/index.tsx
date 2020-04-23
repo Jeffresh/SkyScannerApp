@@ -1,7 +1,7 @@
 import React, {SetStateAction, useEffect, useState} from 'react'
 import {Header as NBHeader, Left, Body, Right, Thumbnail, Icon, Button} from 'native-base'
-import {PRIMARY_DARK, PROFILE, USER_INFO} from '../../constants';
-import { getItem } from '../../utils/storage';
+import {PRIMARY_DARK, PROFILE, USER_INFO} from '~Constants';
+import { getItem } from '~Utils/storage';
 
 import styles from './style';
 
