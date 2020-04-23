@@ -8,6 +8,7 @@
       "~Api": ["services/api"],
       "~Assets/*": ["../assets/*"],
       "~Components/*": ["components/*"],
+      "~Constants": ["constants"],
       "~Hooks/*": ["hooks/*"],
       "~Routes*": ["routes/*", "routes"],
       "~Views/*": ["views/*", "views"],
