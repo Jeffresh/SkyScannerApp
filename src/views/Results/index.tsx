@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import {useDispatch, useSelector } from 'react-redux';
-import {getItineraries} from '../../store/actions/itineraries';
+import {getItineraries} from '~Store/actions/itineraries';
 import {CardItem, Container, Content, Grid, Spinner, Text} from 'native-base';
-import { Itinerary } from '../../components/Itinerary'
-import { Header } from '../../components/Header';
+import { Itinerary } from '~Components/Itinerary'
+import { Header } from '~Components/Header';
 import styles from './style';
 import {SECONDARY} from '../../constants';
-import genericStyles from '../../styles'
+import genericStyles from '~Styles'
 
 
 export default (navigation : any): JSX.Element =>

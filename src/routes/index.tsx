@@ -8,11 +8,11 @@ import {
   RESULTS,
   PROFILE,
 } from '../constants';
-import Login from '../views/Login'
-import { Home } from '../views/Home'
-import LoadingPage from '../views/LoadingPage'
-import Results from '../views/Results'
-import { Profile } from  '../views/Profile'
+import  Login from '~Views/Login'
+import { Home } from '~Views/Home'
+import LoadingPage from '~Views/LoadingPage'
+import Results from '~Views/Results'
+import { Profile } from '~Views/Profile'
 
 export const RootStack = ():JSX.Element => {
   const Stack = createStackNavigator()

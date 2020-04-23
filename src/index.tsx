@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import { RootStack as Routes } from './routes';
 import { Provider } from 'react-redux'
-import Store from './store'
+import  Store  from '~Store'
 import * as Font from 'expo-font'
 import {Container, Content, Grid, Spinner, Text} from 'native-base';
 import { ROBOTO_FONT } from './constants';
-import styles from './styles'
-
+import genericStyles from '~Styles'
 const store = Store()
 
 export default (): JSX.Element => {
@@ -28,8 +27,8 @@ export default (): JSX.Element => {
   if(!fontsLoaded) {
     return (
       <Container>
-        <Content contentContainerStyle={styles.centeredContent}>
-          <Grid style ={styles.centeredGrid}>
+        <Content contentContainerStyle={genericStyles.centeredContent}>
+          <Grid style ={genericStyles.centeredGrid}>
             <Spinner color = 'green'/>
           </Grid>
         </Content>

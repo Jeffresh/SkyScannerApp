@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import {Container, Content, Text, Grid} from 'native-base';
-import { Header } from '../../components/Header'
-import { SearchComponent } from '../../components/SearchComponent';
-import genericStyles from '../../styles'
+import { Header } from '~Components/Header'
+import { SearchComponent } from '~Components/SearchComponent';
+import genericStyles from '~Styles'
 import {BackHandler} from 'react-native';
 
 export const Home = ({navigation}:any): JSX.Element => {

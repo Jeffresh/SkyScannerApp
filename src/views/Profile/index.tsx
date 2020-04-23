@@ -1,7 +1,7 @@
 import React, {SetStateAction, useEffect, useState} from 'react'
 import {Container, Content, View, Text, Spinner, Thumbnail, Button, Icon} from "native-base"
 import styles from './style';
-import {getItem, clearAll} from '../../utils/storage';
+import {getItem, clearAll} from '~Utils/storage';
 import {SECONDARY, USER_INFO, LOGIN} from '../../constants';
 
 export const Profile = ({navigation}:any) => {

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { View, Text, Spinner, Container, Content, Grid } from 'native-base'
 import { LOGIN, HOME, ACCESS_TOKEN } from '../../constants'
-import { getItem } from '../../utils/storage'
+import { getItem } from '~Utils/storage'
 import styles from './style'
 
 export default ({navigation}:any): JSX.Element => {
