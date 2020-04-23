@@ -3,9 +3,9 @@ import {Form, Input, Item, Label, Icon, DatePicker, Picker, Button, Text} from '
 import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
-import {getLocationPayload, getLocations} from '../../redux/actions/itineraries';
+import {getLocationPayload, getLocations} from '../../store/actions/itineraries';
 import { FixedList } from '../FixedList';
-import {RESULTS} from '../../consts';
+import {RESULTS} from '../../constants';
 
 
 export const SearchComponent = ({navigation} : any) => {

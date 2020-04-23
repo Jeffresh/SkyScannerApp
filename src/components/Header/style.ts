@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants'
-import { PRIMARY , WHITE } from '../../consts';
+import { PRIMARY , WHITE } from '../../constants';
 
 export default StyleSheet.create({
   header: {

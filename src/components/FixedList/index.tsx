@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Content, List, ListItem, Text, Spinner } from 'native-base';
-import {PRIMARY} from '../../consts';
+import {PRIMARY} from '../../constants';
 import styles from './style';
 
 export const FixedList = ({places, containerStyle, onItemPress}:any ):JSX.Element => {
