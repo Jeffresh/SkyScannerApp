@@ -16,7 +16,7 @@ module.exports = function(api) {
               "~Constants": "./src/constants",
               "~Hooks": "./src/hooks",
               "~Routes": "./src/routes",
-              "~Services":"./services",
+              "~Services":"./src/services",
               "~Views": "./src/views",
               "~Store": "./src/store",
               "~Styles": "./src/styles",

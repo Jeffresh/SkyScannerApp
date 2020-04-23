@@ -14,6 +14,8 @@
       "~Views/*": ["views/*", "views"],
       "~Store": ["store"],
       "~Store/*": ["store/*"],
+      "~Services": ["../services"],
+      "~Services/*": ["../services/*"],
       "~Styles" : ["styles"],
       "~Theme": ["theme"],
       "~Test/*": ["__test__/*"],
