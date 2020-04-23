@@ -9,7 +9,6 @@ import {
 
 import apiCall from '../../../services/api'
 
-import { getLocationPayload } from '../actions/itineraries'
 import { takeLatest, call, put } from 'redux-saga/effects';
 
 const country = 'ES'

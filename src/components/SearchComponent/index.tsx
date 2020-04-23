@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {Form, Input, Item, Label, Icon, DatePicker, Picker, Button, Text} from 'native-base';
+import React, { useState } from 'react';
+import {Form, Input, Item, Icon, DatePicker, Picker, Button, Text} from 'native-base';
 import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';

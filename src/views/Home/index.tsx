@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Container, Content, Text, Grid} from 'native-base';
+import {Container, Content, Grid} from 'native-base';
 import { Header } from '~Components/Header'
 import { SearchComponent } from '~Components/SearchComponent';
 import genericStyles from '~Styles'
