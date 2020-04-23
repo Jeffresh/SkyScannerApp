@@ -5,7 +5,7 @@ import {
   GET_ITINERARIES_START,
   GET_ITINERARIES_ERROR,
   GET_ITINERARIES_SUCCESS
-} from '../constants/actionTypes';
+} from '~Store/constants/actionTypes';
 
 export default function(state:any, action:any) {
   switch (action.type) {

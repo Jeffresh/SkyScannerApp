@@ -7,7 +7,7 @@ import {
   GET_ITINERARIES_ERROR
 } from '../constants/actionTypes';
 
-import apiCall from '../../../services/api'
+import apiCall from '~Services/api'
 
 import { takeLatest, call, put } from 'redux-saga/effects';
 

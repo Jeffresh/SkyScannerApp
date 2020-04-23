@@ -3,15 +3,14 @@ import {Form, Input, Item, Icon, DatePicker, Picker, Button, Text} from 'native-
 import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
-import {getLocationPayload, getLocations} from '~Store/actions/itineraries';
-import { FixedList } from '../FixedList';
+import {getLocations} from '~Store/actions/itineraries';
+import { FixedList } from '~Components/FixedList';
 import {RESULTS} from '~Constants';
 
 
 export const SearchComponent = ({navigation} : any) => {
   const dispatch = useDispatch()
   const places  = useSelector((state) => state.itineraries.places)
-  // console.log(places)
 
   const [originPlace, setOriginPlace] = useState({PlaceName:''} as any)
   const [destinationPlace, setDestinationPlace] = useState({PlaceName:''} as any)

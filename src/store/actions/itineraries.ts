@@ -1,4 +1,4 @@
-import { GET_LOCATIONS_START, GET_ITINERARIES_START } from '../constants/actionTypes';
+import { GET_LOCATIONS_START, GET_ITINERARIES_START } from '~Store/constants/actionTypes';
 
 export interface getLocationPayload {
     query: string
