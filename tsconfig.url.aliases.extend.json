@@ -12,6 +12,7 @@
       "~Routes*": ["routes/*", "routes"],
       "~Screens/*": ["screens/*"],
       "~Store/*": ["store/*"],
+      "~Styles" : ["styles"],
       "~Theme": ["theme"],
       "~Test/*": ["__test__/*"],
       "~Utils/*": ["utils/*"]
