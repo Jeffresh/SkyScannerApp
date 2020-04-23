@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { RootStack as Routes } from './routes';
 import { Provider } from 'react-redux'
-import Store from './redux/store'
+import Store from './store'
 import * as Font from 'expo-font'
 import {Spinner} from 'native-base';
-import { ROBOTO_FONT } from './consts';
+import { ROBOTO_FONT } from './constants';
 
 const store = Store()
 
