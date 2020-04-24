@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Image } from 'react-native'
 import { Container, Content, Text, Grid, Button } from 'native-base'
 import * as Google from 'expo-google-app-auth'
@@ -10,9 +10,12 @@ import {HOME} from '~Constants';
 const GOOGLE_IMAGE = require('~Assets/google-icon.png')
 const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
 import genericStyles from '~Styles'
+import AppContainer from '../../../src'
+import {RootStack as Routes} from '../../routes'
 
 
-const Login = ({navigation}:any):JSX.Element => {
+const Login = ():JSX.Element => {
+  const [tokenResult, setTokenResult] = useState(false)
 
   const handleLoginPress = async () => {
     try {
@@ -28,7 +31,10 @@ const Login = ({navigation}:any):JSX.Element => {
         if(result.accessToken !== null) {
           const tokenResult = await saveItem(ACCESS_TOKEN, result.accessToken)
           if(userResult && tokenResult) {
-            navigation.navigate(HOME)
+            setTokenResult(tokenResult)
+            console.log('TokenResult')
+            console.log(tokenResult)
+            // TODO DISPATCH
           }
           else {
             alert('Error: failed singing in')
@@ -46,20 +52,26 @@ const Login = ({navigation}:any):JSX.Element => {
     }
 
   }
-  return(
-    <Container>
-      <Content contentContainerStyle={[genericStyles.centeredContent, styles.content]}>
-        <Grid style={[genericStyles.centeredGrid, styles.grid]}>
-          <Text style={styles.title}>Welcome!</Text>
-          <Text style={styles.subtitle}>Sign in to continue</Text>
-          <Button light style={styles.googleBtn} onPress={handleLoginPress}>
-            <Text>Google</Text>
-            <Image source={GOOGLE_IMAGE} style={styles.googleIcon} />
-          </Button>
-        </Grid>
-      </Content>
-    </Container>
-  )
+
+  if (!tokenResult) {
+    return (
+      <Container>
+        <Content contentContainerStyle={[genericStyles.centeredContent, styles.content]}>
+          <Grid style={[genericStyles.centeredGrid, styles.grid]}>
+            <Text style={styles.title}>Welcome!</Text>
+            <Text style={styles.subtitle}>Sign in to continue</Text>
+            <Button light style={styles.googleBtn} onPress={handleLoginPress}>
+              <Text>Google</Text>
+              <Image source={GOOGLE_IMAGE} style={styles.googleIcon}/>
+            </Button>
+          </Grid>
+        </Content>
+      </Container>
+    )
+  }
+
+  return <Routes token={tokenResult} />
+
 }
 
 export default Login
