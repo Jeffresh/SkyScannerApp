@@ -3,9 +3,11 @@ import {Container, Content, View, Text, Spinner, Thumbnail, Button, Icon} from "
 import styles from './style';
 import {getItem, clearAll} from '~Utils/storage';
 import {SECONDARY, USER_INFO, LOGIN} from '~Constants';
+import { useNavigation } from '@react-navigation/native';
 
-export const Profile = ({navigation}:any) => {
+export const Profile = () => {
   const [userInfo, setUserInfo] = useState(null)
+  const navigation = useNavigation();
 
   const loadUserInfo = async () => {
     let userLogged: SetStateAction<any> = await getItem(USER_INFO)
@@ -20,12 +22,11 @@ export const Profile = ({navigation}:any) => {
 
   const handleLogoutPress = async () => {
     await clearAll()
-    navigation.navigate(LOGIN)
+    //TODO implements using redux
   }
 
-  const handleBackButtonPress = () => {
-    navigation.goBack()
-  }
+  const handleBackButtonPress = () => navigation.goBack()
+
 
   if(!userInfo) {
     return (
