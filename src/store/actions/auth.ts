@@ -1,7 +1,7 @@
 import {SIGN_IN, SIGN_OUT, RESTORE_TOKEN} from '~Store/constants/actionTypes';
 
 export interface authPayload {
-  token: string
+  token: string | null
 }
 
 
