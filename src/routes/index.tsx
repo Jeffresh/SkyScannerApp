@@ -11,13 +11,14 @@ import  Login from '~Views/Login'
 import { Home } from '~Views/Home'
 import Results from '~Views/Results'
 import { Profile } from '~Views/Profile'
-
-export const RootStack = ({token}:any):JSX.Element => {
-  const [isLogged, setIsLogged] = useState(token)
+import {useSelector} from 'react-redux';
+import reducer from '../store/reducers'
+export const RootStack = ():JSX.Element => {
   const Stack = createStackNavigator()
 
-  console.log('Route')
-  console.log(isLogged)
+  const userToken = useSelector(state => state.authReducer.userToken)
+  console.log('usertoken')
+  console.log(userToken)
 
   const unLoggedStack = () => {
     return (
@@ -50,7 +51,7 @@ export const RootStack = ({token}:any):JSX.Element => {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator headerMode='none'>
-      {isLogged ? loggedStack(): unLoggedStack()}
+      {userToken ? loggedStack(): unLoggedStack()}
       </Stack.Navigator>
     </ NavigationContainer>
   )
