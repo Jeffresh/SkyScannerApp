@@ -15,7 +15,7 @@ import {useSelector} from 'react-redux';
 export const RootStack = ():JSX.Element => {
   const Stack = createStackNavigator()
 
-  const userToken = useSelector(state => state.authReducer.userToken)
+  const userToken = useSelector(state => state.auth.userToken)
   console.log('usertoken')
   console.log(userToken)
 

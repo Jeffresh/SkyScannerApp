@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import itineraries from './itineraries'
+import {itinerariesReducer} from './itineraries'
 import {authReducer} from './auth'
 
-export default combineReducers({
-  itineraries,
-  authReducer,
+const rootReducer = combineReducers({
+  itineraries: itinerariesReducer,
+  auth: authReducer,
 })
+
+export default rootReducer

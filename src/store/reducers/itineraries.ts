@@ -7,7 +7,7 @@ import {
   GET_ITINERARIES_SUCCESS
 } from '~Store/constants/actionTypes';
 
-export default function(state:any, action:any) {
+export const itinerariesReducer = (state:any, action:any) => {
   switch (action.type) {
     case GET_LOCATIONS_START:
       return {...state}
