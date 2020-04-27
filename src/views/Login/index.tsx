@@ -32,7 +32,7 @@ const Login = ():JSX.Element => {
         if(result.accessToken !== null) {
           const tokenResult = await saveItem(ACCESS_TOKEN, result.accessToken)
           if(userResult && tokenResult) {
-            setTokenResult(tokenResult)
+            dispatch(signIn({token: result.accessToken}))
             dispatch(signIn({token: tokenResult}))
           }
           else {
