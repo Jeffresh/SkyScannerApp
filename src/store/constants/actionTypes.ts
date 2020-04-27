@@ -9,3 +9,10 @@ export const GET_ITINERARIES_ERROR = '@udemy:GET_ITINERARIES_ERROR'
 export const RESTORE_TOKEN   = 'RESTORE_TOKEN'
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
+
+
+export interface authStateType {
+  isLoading: boolean,
+  isSignout: boolean,
+  userToken: string | null,
+}
