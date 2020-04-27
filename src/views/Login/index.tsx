@@ -9,13 +9,11 @@ import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '~Constants';
 const GOOGLE_IMAGE = require('~Assets/google-icon.png')
 const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
 import genericStyles from '~Styles'
-import {RootStack as Routes} from '../../routes'
 import {useDispatch} from 'react-redux';
 import {signIn} from '~Store/actions/auth';
 
 
 const Login = ():JSX.Element => {
-  const [tokenResult, setTokenResult] = useState(false)
   const dispatch = useDispatch()
 
   const handleLoginPress = async () => {
@@ -33,7 +31,6 @@ const Login = ():JSX.Element => {
           const tokenResult = await saveItem(ACCESS_TOKEN, result.accessToken)
           if(userResult && tokenResult) {
             dispatch(signIn({token: result.accessToken}))
-            dispatch(signIn({token: tokenResult}))
           }
           else {
             alert('Error: failed singing in')
@@ -52,7 +49,6 @@ const Login = ():JSX.Element => {
 
   }
 
-  if (!tokenResult) {
     return (
       <Container>
         <Content contentContainerStyle={[genericStyles.centeredContent, styles.content]}>
@@ -69,8 +65,5 @@ const Login = ():JSX.Element => {
     )
   }
 
-  return <Routes token={tokenResult} />
-
-}
 
 export default Login
