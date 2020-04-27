@@ -4,10 +4,13 @@ import styles from './style';
 import {getItem, clearAll} from '~Utils/storage';
 import {SECONDARY, USER_INFO } from '~Constants';
 import { useNavigation } from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {signOut} from '~Store/actions/auth';
 
 export const Profile = () => {
   const [userInfo, setUserInfo] = useState(null)
   const navigation = useNavigation();
+  const dispatch = useDispatch()
 
   const loadUserInfo = async () => {
     let userLogged: SetStateAction<any> = await getItem(USER_INFO)
@@ -22,6 +25,7 @@ export const Profile = () => {
 
   const handleLogoutPress = async () => {
     await clearAll()
+    dispatch(signOut())
     //TODO implements using redux
   }
 
