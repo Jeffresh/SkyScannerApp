@@ -19,4 +19,4 @@ web-report/
 clientIds.ts
 
 # environment file
-env.ts
+env/env.ts

@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Image } from 'react-native'
 import { Container, Content, Text, Grid, Button } from 'native-base'
 import * as Google from 'expo-google-app-auth'
 import styles from './style';
 import { saveItem } from '~Utils/storage';
-import environment from '../../../env'
+import environment from '../../../env/env'
 import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '~Constants';
 const GOOGLE_IMAGE = require('~Assets/google-icon.png')
 const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
