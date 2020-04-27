@@ -12,10 +12,12 @@ import { Home } from '~Views/Home'
 import Results from '~Views/Results'
 import { Profile } from '~Views/Profile'
 import {useSelector} from 'react-redux';
+import { RootState } from '~Store/reducers'
+
 export const RootStack = ():JSX.Element => {
   const Stack = createStackNavigator()
 
-  const userToken = useSelector(state => state.auth.userToken)
+  const userToken = useSelector((state : RootState) => state.auth.userToken)
   console.log('usertoken')
   console.log(userToken)
 

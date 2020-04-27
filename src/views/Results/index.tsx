@@ -7,6 +7,7 @@ import { Header } from '~Components/Header';
 import styles from './style';
 import {SECONDARY} from '~Constants';
 import genericStyles from '~Styles'
+import {RootState} from '~Store/reducers';
 
 
 export default (navigation : any): JSX.Element =>
@@ -14,8 +15,8 @@ export default (navigation : any): JSX.Element =>
   const dispatch = useDispatch()
 
   const [hasFetched, setHasFetched] = useState(false)
-  const itineraries = useSelector(state => state.itineraries.itineraries)
-  const error = useSelector(state => state.itineraries.error)
+  const itineraries = useSelector((state :RootState) => state.itineraries.itineraries)
+  const error = useSelector((state :RootState) => state.itineraries.error)
 
   const renderItineraries = ():JSX.Element => {
     if(itineraries && itineraries.Carriers) {

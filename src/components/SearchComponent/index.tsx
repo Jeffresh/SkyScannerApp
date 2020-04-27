@@ -6,11 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {getLocations} from '~Store/actions/itineraries';
 import { FixedList } from '~Components/FixedList';
 import {RESULTS} from '~Constants';
+import {RootState} from '~Store/reducers';
 
 
 export const SearchComponent = ({navigation} : any) => {
   const dispatch = useDispatch()
-  const places  = useSelector((state) => state.itineraries.places)
+  const places  = useSelector((state :RootState) => state.itineraries.places)
 
   const [originPlace, setOriginPlace] = useState({PlaceName:''} as any)
   const [destinationPlace, setDestinationPlace] = useState({PlaceName:''} as any)
