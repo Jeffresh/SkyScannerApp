@@ -12,7 +12,6 @@ import { Home } from '~Views/Home'
 import Results from '~Views/Results'
 import { Profile } from '~Views/Profile'
 import {useSelector} from 'react-redux';
-import reducer from '../store/reducers'
 export const RootStack = ():JSX.Element => {
   const Stack = createStackNavigator()
 
@@ -49,7 +48,7 @@ export const RootStack = ():JSX.Element => {
   }
 
   return (
-    <NavigationContainer independent={true}>
+    <NavigationContainer>
       <Stack.Navigator headerMode='none'>
       {userToken ? loggedStack(): unLoggedStack()}
       </Stack.Navigator>
