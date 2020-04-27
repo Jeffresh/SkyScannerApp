@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import {SECONDARY} from '../../constants';
+import {SECONDARY} from '~Constants';
 const { width } = Dimensions.get("window")
 
 export default StyleSheet.create({
