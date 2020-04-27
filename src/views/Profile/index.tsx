@@ -2,7 +2,7 @@ import React, {SetStateAction, useEffect, useState} from 'react'
 import {Container, Content, View, Text, Spinner, Thumbnail, Button, Icon} from "native-base"
 import styles from './style';
 import {getItem, clearAll} from '~Utils/storage';
-import {SECONDARY, USER_INFO, LOGIN} from '~Constants';
+import {SECONDARY, USER_INFO } from '~Constants';
 import { useNavigation } from '@react-navigation/native';
 
 export const Profile = () => {

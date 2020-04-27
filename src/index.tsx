@@ -3,7 +3,7 @@ import { RootStack as Routes } from './routes';
 import { Provider } from 'react-redux'
 import  Store  from '~Store'
 import * as Font from 'expo-font'
-import {ACCESS_TOKEN, HOME, LOGIN, ROBOTO_FONT} from '~Constants';
+import {ACCESS_TOKEN, ROBOTO_FONT} from '~Constants';
 import {getItem} from '~Utils/storage';
 import LoadingPage from '~Views/LoadingPage';
 const store = Store()

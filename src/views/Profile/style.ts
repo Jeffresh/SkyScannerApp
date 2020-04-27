@@ -1,6 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import Constants from 'expo-constants'
-import {PRIMARY, SECONDARY, WHITE} from '../../constants';
+import {PRIMARY, SECONDARY, WHITE} from '~Constants';
 const { width }  = Dimensions.get("window")
 
 const styles = StyleSheet.create({
