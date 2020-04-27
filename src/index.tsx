@@ -12,6 +12,7 @@ import {RESTORE_TOKEN} from '~Store/constants/actionTypes';
 import {restoreToken} from '~Store/actions/auth';
 
 export default (): JSX.Element => {
+
   const [fontsLoaded, setFontsLoaded] = useState(false)
   const [tokenFetched, setTokenFetched] = useState(false)
   const dispatch = useDispatch()
@@ -42,8 +43,6 @@ export default (): JSX.Element => {
     return <LoadingPage />
   }
   return (
-    <Provider store={store}>
-      <Routes token={userToken}/>
-    </Provider>
+      <Routes/>
   )
 }
