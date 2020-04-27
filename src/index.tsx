@@ -1,14 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { RootStack as Routes } from './routes';
-import { Provider } from 'react-redux'
-import  Store  from '~Store'
 import * as Font from 'expo-font'
 import {ACCESS_TOKEN, ROBOTO_FONT} from '~Constants';
 import {getItem} from '~Utils/storage';
 import LoadingPage from '~Views/LoadingPage'
-import {useDispatch, useSelector } from 'react-redux';
-import {authReducer} from '~Store/reducers/auth';
-import {RESTORE_TOKEN} from '~Store/constants/actionTypes';
+import {useDispatch} from 'react-redux';
 import {restoreToken} from '~Store/actions/auth';
 
 export default (): JSX.Element => {
