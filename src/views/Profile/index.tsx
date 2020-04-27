@@ -43,7 +43,7 @@ export const Profile = () => {
       <Content contentContainerStyle={styles.content} >
         <View style={styles.imageContainer} >
           <Button transparent style={styles.backButton} onPress={handleBackButtonPress}>
-            <Icon
+            <Icon name = "md-arrow-back"
               android = "md-arrow-back"
               ios="ios-arrow-back"
               style={styles.backIcon}

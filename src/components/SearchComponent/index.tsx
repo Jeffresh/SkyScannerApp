@@ -78,7 +78,7 @@ export const SearchComponent = ({navigation} : any) => {
   return (
     <Form style={styles.form}>
       <Item>
-        <Icon ios='ios-home' android='md-home'/>
+        <Icon name="md-home" ios='ios-home' android='md-home'/>
         <Input
           placeholder="Origin"
           value={originPlace.PlaceName}
@@ -89,7 +89,7 @@ export const SearchComponent = ({navigation} : any) => {
       {showOriginPlaceList &&
       (<FixedList places={places} containerStyle={{top: 50}} onItemPress={handleOriginPlaceItemPress} /> )}
       <Item>
-        <Icon ios='ios-airplane' android='md-airplane'/>
+        <Icon name="md-airplane" ios='ios-airplane' android='md-airplane'/>
         <Input
           placeholder="Destination"
           value={destinationPlace.PlaceName}
@@ -100,14 +100,14 @@ export const SearchComponent = ({navigation} : any) => {
       {showDestinationPlaceList &&
       ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
       <Item style={styles.datesContainer}>
-        <Icon ios="ios-calendar" android='md-calendar'/>
+        <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
         <DatePicker
           placeHolderText="Departure date"
           onDateChange={handleOutBoundDateChange}
           minimumDate={new Date()}
         />
 
-        <Icon ios="ios-calendar" android='md-calendar'/>
+        <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
         <DatePicker
           placeHolderText="Arrival date (optional)"
           onDateChange={handleInBoundDateChange}

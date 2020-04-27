@@ -29,12 +29,12 @@ export const Header = ({showBack}: any): JSX.Element => {
     navigation.navigate(PROFILE)
   }
 
-
   return (
     <NBHeader androidStatusBarColor={PRIMARY_DARK} style={styles.header}>
       <Left>
         {showBack && (
         <Icon
+          name = "md-arrow-back"
           android="md-arrow-back"
           ios="ios-arrow-back"
           style={styles.backIcon}
