@@ -26,7 +26,6 @@ export const Profile = () => {
   const handleLogoutPress = async () => {
     await clearAll()
     dispatch(signOut())
-    //TODO implements using redux
   }
 
   const handleBackButtonPress = () => navigation.goBack()
