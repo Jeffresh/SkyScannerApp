@@ -22,7 +22,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "YOUR BUNDLE IDENTIFIER"
+    },
+    "android" : {
+      "package": "YOUR PACKAGE IDENTIFIER"
     }
   }
 }
