@@ -16,8 +16,8 @@ export const SearchComponent = ({navigation} : any) => {
 
   const [originPlace, setOriginPlace] = useState({PlaceName:''} as any)
   const [destinationPlace, setDestinationPlace] = useState({PlaceName:''} as any)
-  const [outBoundDate, setOutBoundDate] = useState({} as Date)
-  const [inBoundDate, setInBoundDate] = useState({} as Date)
+  const [outBoundDate, setOutBoundDate] = useState(new Date() as Date)
+  const [inBoundDate, setInBoundDate] = useState(new Date() as Date)
   const [adultsNumber, setAdultsNumber] = useState('0')
   const [childrenNumber, setChildrenNumber] = useState('0')
   const [showOriginPlaceList, setShowOriginPlaceList] = useState(false)
