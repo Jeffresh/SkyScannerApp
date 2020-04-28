@@ -19,7 +19,8 @@ export default StyleSheet.create({
   },
   pickersContainer: {
     marginTop:12,
-    marginBottom: 14
+    marginBottom: 14,
+    justifyContent: 'space-between'
   },
   searchBtn: {
     marginTop:14,
@@ -33,13 +34,6 @@ export default StyleSheet.create({
   },
   searchIcon: {
     marginRight: -5
-  },
-
-  btnDatePicker: {
-  },
-  textDatePicker: {
-    color: "black",
-    marginLeft: -20
   },
 
 })
