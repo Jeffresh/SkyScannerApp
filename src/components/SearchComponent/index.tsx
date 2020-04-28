@@ -35,6 +35,9 @@ export const SearchComponent = ({navigation} : any) => {
     if(event.type === "set") {
       setOutBoundDate(outboundDate)
     }
+    if(outboundDate>inBoundDate) {
+      setInBoundDate(outboundDate)
+    }
   }
 
   const handleInBoundDateChange = (event: Event, inboundDate: Date):void => {
