@@ -29,8 +29,20 @@ export const SearchComponent = ({navigation} : any) => {
   const handleOriginPlaceChange = (origin:string) => setOriginPlace({PlaceName: origin})
   const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( {PlaceName: destination})
 
-  const handleOutBoundDateChange = (outboundDate: Date) => setOutBoundDate(outboundDate)
-  const handleInBoundDateChange = (inboundDate: Date) => setInBoundDate(inboundDate)
+
+  const handleOutBoundDateChange = (event: Event, outboundDate: Date):void => {
+    setShowOutDatePicker(false)
+    if(event.type === "set") {
+      setOutBoundDate(outboundDate)
+    }
+  }
+
+  const handleInBoundDateChange = (event: Event, inboundDate: Date):void => {
+    setShowInDatePicker(false)
+    if(event.type === "set") {
+      setInBoundDate(inboundDate)
+    }
+  }
 
   const handleOutBoundDateKeyPress = () => {
     setShowOutDatePicker(true)
