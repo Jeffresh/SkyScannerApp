@@ -5,8 +5,13 @@ import React, {useState} from 'react';
 import moment from 'moment';
 
 
+interface DataPickerProps {
+  value: Date,
+  onChange?: (date: Date) => void,
+  minimumValue?:Date
+}
 
-export const DataPicker = ({value, onChange}:any):JSX.Element => {
+export const DataPicker = ({value, onChange, minimumValue}:DataPickerProps):JSX.Element => {
   const[showDataPicker, setShowDataPicker] = useState(false)
 
   const handleDateBtnPress = () => {
