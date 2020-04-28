@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import {Form, Input, Item, Icon, DatePicker, Picker, Button, Text} from 'native-base';
+import React, {useEffect, useState} from 'react';
+import {Form, Input, Item, Icon, Picker, Button, Text} from 'native-base';
+import DateTimePicker from '@react-native-community/datetimepicker'
 import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
