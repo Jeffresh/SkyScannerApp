@@ -23,6 +23,8 @@ export const SearchComponent = ({navigation} : any) => {
   const [showOriginPlaceList, setShowOriginPlaceList] = useState(false)
   const [showDestinationPlaceList, setShowDestinationPlaceList] = useState(false)
 
+  const[showOutDatePicker, setShowOutDatePicker] = useState(false)
+  const[showInDatePicker, setShowInDatePicker] = useState(false)
   const handleOriginPlaceChange = (origin:string) => setOriginPlace({PlaceName: origin})
   const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( {PlaceName: destination})
 
