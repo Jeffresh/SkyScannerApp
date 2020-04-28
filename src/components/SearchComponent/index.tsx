@@ -126,7 +126,8 @@ export const SearchComponent = ({navigation} : any) => {
       {showDestinationPlaceList &&
       ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
       <Item style={styles.datesContainer}>
-        <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
+        <Button transparent onPress={handleOutBoundDateKeyPress} style={styles.input}>
+          <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
           <Text style={styles.textDatePicker}> {(moment(outBoundDate).format('YYYY-MM-DD'))}</Text>
         </Button>
         {showOutDatePicker && (
@@ -136,10 +137,11 @@ export const SearchComponent = ({navigation} : any) => {
             minimumDate={new Date()}
             value={outBoundDate}
         />)}
-        <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
-        <DatePicker
-          placeHolderText="Arrival date (optional)"
-          onDateChange={handleInBoundDateChange}
+        <Button transparent onPress={handleInBoundDateKeyPress}>
+          <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
+          <Text style={styles.textDatePicker}> {moment(inBoundDate).format('YYYY-MM-DD')}</Text>
+        </Button>
+        {showInDatePicker && (
         <DateTimePicker
           mode={'date'}
           onChange={handleInBoundDateChange}
