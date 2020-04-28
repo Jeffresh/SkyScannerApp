@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Form, Input, Item, Icon, Picker, Button, Text} from 'native-base';
-import DateTimePicker from '@react-native-community/datetimepicker'
 import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +7,7 @@ import {getLocations} from '~Store/actions/itineraries';
 import { FixedList } from '~Components/FixedList';
 import {RESULTS} from '~Constants';
 import {RootState} from '~Store/reducers';
+import {DataPicker} from '~Components/DatePicker';
 
 
 export const SearchComponent = ({navigation} : any) => {
@@ -23,39 +23,19 @@ export const SearchComponent = ({navigation} : any) => {
   const [showOriginPlaceList, setShowOriginPlaceList] = useState(false)
   const [showDestinationPlaceList, setShowDestinationPlaceList] = useState(false)
 
-  const[showOutDatePicker, setShowOutDatePicker] = useState(false)
-  const[showInDatePicker, setShowInDatePicker] = useState(false)
-
   const handleOriginPlaceChange = (origin:string) => setOriginPlace({PlaceName: origin})
   const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( {PlaceName: destination})
 
-
-  const handleOutBoundDateChange = (event: Event, outboundDate: Date):void => {
-    setShowOutDatePicker(false)
-    if(event.type === "set") {
+  const handleOutBoundDateChange = (outboundDate: Date):void=> {
       setOutBoundDate(outboundDate)
       if(outboundDate > inBoundDate) {
         setInBoundDate(outboundDate)
       }
-    }
   }
 
-  const handleInBoundDateChange = (event: Event, inboundDate: Date):void => {
-    setShowInDatePicker(false)
-    if(event.type === "set") {
+  const handleInBoundDateChange = (inboundDate: Date):void => {
       setInBoundDate(inboundDate)
-    }
   }
-
-  const handleOutBoundDateKeyPress = () => {
-    setShowOutDatePicker(true)
-  }
-
-  const handleInBoundDateKeyPress = () => {
-    setShowInDatePicker(true)
-  }
-
-
 
   const handleAdultsNumberChange = (adultsNumber: string) => setAdultsNumber(adultsNumber)
   const handleChildrenNumberChange = (childrenNumber: string) => setChildrenNumber(childrenNumber)
@@ -129,28 +109,15 @@ export const SearchComponent = ({navigation} : any) => {
       {showDestinationPlaceList &&
       ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
       <Item style={styles.datesContainer}>
-        <Button transparent onPress={handleOutBoundDateKeyPress} style={styles.input}>
-          <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
-          <Text style={styles.textDatePicker}> {(moment(outBoundDate).format('YYYY-MM-DD'))}</Text>
-        </Button>
-        {showOutDatePicker && (
-        <DateTimePicker
-            mode={'date'}
-            onChange={handleOutBoundDateChange}
-            minimumDate={new Date()}
-            value={outBoundDate}
-        />)}
-        <Button transparent onPress={handleInBoundDateKeyPress}>
-          <Icon name="md-calendar" ios="ios-calendar" android='md-calendar'/>
-          <Text style={styles.textDatePicker}> {moment(inBoundDate).format('YYYY-MM-DD')}</Text>
-        </Button>
-        {showInDatePicker && (
-        <DateTimePicker
-          mode={'date'}
-          onChange={handleInBoundDateChange}
-          minimumDate={outBoundDate}
+        <DataPicker
+          value={outBoundDate}
+          onChange={handleOutBoundDateChange}
+        />
+        <DataPicker
           value={inBoundDate}
-        />)}
+          minimumValue={outBoundDate}
+          onChange={handleInBoundDateChange}
+        />
       </Item>
       <Item style={styles.pickersContainer}>
         <Icon name='person'/>
