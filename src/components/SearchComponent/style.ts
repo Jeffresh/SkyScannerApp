@@ -33,6 +33,13 @@ export default StyleSheet.create({
   },
   searchIcon: {
     marginRight: -5
-  }
+  },
+
+  btnDatePicker: {
+  },
+  textDatePicker: {
+    color: "black",
+    marginLeft: -20
+  },
 
 })
