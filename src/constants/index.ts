@@ -1,5 +1,4 @@
 // Routes
-export const LOADING_PAGE: string = 'LoadingPage'
 export const LOGIN: string = 'Login'
 export const HOME: string = 'Home'
 export const RESULTS: string = 'Results'

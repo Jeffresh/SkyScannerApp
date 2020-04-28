@@ -3,7 +3,7 @@ import { RootStack as Routes } from './routes';
 import * as Font from 'expo-font'
 import {ACCESS_TOKEN, ROBOTO_FONT} from '~Constants';
 import {getItem} from '~Utils/storage';
-import LoadingPage from '~Views/LoadingPage'
+import {Spinner} from '~Components/Spinner'
 import {useDispatch} from 'react-redux';
 import {restoreToken} from '~Store/actions/auth';
 
@@ -36,7 +36,7 @@ export default (): JSX.Element => {
 
 
   if(!fontsLoaded || !tokenFetched) {
-    return <LoadingPage />
+    return <Spinner />
   }
   return (
       <Routes/>
