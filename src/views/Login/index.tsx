@@ -4,9 +4,9 @@ import { Container, Content, Text, Grid, Button } from 'native-base'
 import * as Google from 'expo-google-app-auth'
 import styles from './style';
 import { saveItem } from '~Utils/storage';
-import environment from '../../../env/env'
 import {ACCESS_TOKEN, USER_INFO, GOOGLE_SUCCESS_MESSAGE} from '~Constants';
 const GOOGLE_IMAGE = require('~Assets/google-icon.png')
+import environment from '~Env/env.ts'
 const { iosClientId, androidClientId, iosStandaloneAppClientId, androidStandaloneAppClientId } = environment()
 import genericStyles from '~Styles'
 import {useDispatch} from 'react-redux';

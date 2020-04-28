@@ -12,6 +12,7 @@ module.exports = function(api) {
               "tests": ["./tests/"],
               "~Api": "./src/services/api",
               "~Assets": "./assets",
+              "~Env": "./env",
               "~Components": "./src/components",
               "~Constants": "./src/constants",
               "~Hooks": "./src/hooks",

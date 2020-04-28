@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    // baseUrl is optional for plugin, but some IDEs require it
     "baseUrl": "./src",
-    // Change paths in package.json (Jest) and .babelrc
     "paths": {
       "~Api/*": ["services/api/*"],
       "~Api": ["services/api"],
       "~Assets/*": ["../assets/*"],
+      "~Env/*": ["../env/*"],
       "~Components/*": ["components/*"],
       "~Constants": ["constants"],
       "~Hooks/*": ["hooks/*"],
