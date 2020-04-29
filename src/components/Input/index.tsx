@@ -10,21 +10,21 @@ interface InputProps {
   inputValue: string,
   onChangeText?: ((text: string) => void) | undefined,
   onKeyPress?: ((e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void) | undefined,
-  InputStyle?: StyleProp<TextStyle>,
-  IconStyle ?: StyleProp<TextStyle>,
+  inputStyle?: StyleProp<TextStyle>,
+  iconStyle ?: StyleProp<TextStyle>,
 
 }
 
 export const Input: React.FC<InputProps> = (props:InputProps) => {
   return (
     <>
-      <Icon name={props.iconName} ios={props.iconIos} android={props.iconAndroid} style={props.IconStyle}/>
+      <Icon name={props.iconName} ios={props.iconIos} android={props.iconAndroid} style={props.iconStyle}/>
       <NativeBaseInput
         placeholder={props.inputPlaceHolder}
         value={props.inputValue}
         onChangeText={props.onChangeText}
         onKeyPress={props.onKeyPress}
-        style={props.InputStyle}
+        style={props.inputStyle}
       />
     </>
   )

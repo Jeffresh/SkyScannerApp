@@ -96,7 +96,7 @@ export const SearchComponent = ({navigation} : any) => {
           inputValue={originPlace.PlaceName}
           onChangeText={handleOriginPlaceChange}
           onKeyPress={handleOriginPlaceKeyPress}
-          InputStyle={styles.input}
+          inputStyle={styles.input}
         />
       </Item>
       {showOriginPlaceList &&
@@ -110,7 +110,7 @@ export const SearchComponent = ({navigation} : any) => {
           inputValue={destinationPlace.PlaceName}
           onChangeText={handleDestinationPlaceChange}
           onKeyPress={handleDestinationPlaceKeyPress}
-          style={styles.input}
+          inputStyle={styles.input}
           />
       </Item>
       {showDestinationPlaceList &&
