@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Item, Icon, Picker, Button, Text} from 'native-base';
+import {Form, Item, Icon, Button, Text} from 'native-base';
 import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,7 @@ import {RESULTS} from '~Constants';
 import {RootState} from '~Store/reducers';
 import {DatePicker} from '~Components/DatePicker';
 import {Input} from '~Components/Input'
+import {Picker,ItemPicker} from '~Components/Picker/Picker';
 
 
 export const SearchComponent = ({navigation} : any) => {
@@ -128,38 +129,24 @@ export const SearchComponent = ({navigation} : any) => {
         />
       </Item>
       <Item style={styles.pickersContainer}>
-        <Icon name='person'/>
         <Picker
-          placeholder="Adult's number"
-          mode='dropdown'
+          iconName={'person'}
+          pickerPlaceHolder={'Adults'}
+          mode={"dropdown"}
           selectedValue={adultsNumber}
           onValueChange={handleAdultsNumberChange}
-        >
-          <Picker.Item label="Adults" value="0"/>
-          <Picker.Item label="1" value="1"/>
-          <Picker.Item label="2" value="2"/>
-          <Picker.Item label="3" value="3"/>
-          <Picker.Item label="4" value="4"/>
-          <Picker.Item label="5" value="5"/>
-          <Picker.Item label="6" value="6"/>
-          <Picker.Item label="7" value="7"/>
-        </Picker>
-        <Icon name='person'/>
+          items={itemsPicker}
+
+        />
         <Picker
-          placeholder="Children number"
-          mode='dropdown'
+          iconName={'person'}
+          pickerPlaceHolder={'Children'}
+          mode={"dropdown"}
           selectedValue={childrenNumber}
           onValueChange={handleChildrenNumberChange}
-        >
-          <Picker.Item label="Children" value="0"/>
-          <Picker.Item label="1" value="1"/>
-          <Picker.Item label="2" value="2"/>
-          <Picker.Item label="3" value="3"/>
-          <Picker.Item label="4" value="4"/>
-          <Picker.Item label="5" value="5"/>
-          <Picker.Item label="6" value="6"/>
-          <Picker.Item label="7" value="7"/>
-        </Picker>
+          items={itemsPicker}
+
+        />
       </Item>
       <Button style={styles.searchBtn} disabled={searchButtonDisabled()} onPress={handleSearchBtnClick}>
         <Icon name="search" style={styles.searchIcon}/>
