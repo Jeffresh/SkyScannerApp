@@ -135,7 +135,7 @@ export const SearchComponent = ({navigation} : any) => {
           selectedValue={adultsNumber}
           onValueChange={handleAdultsNumberChange}
         >
-          <Picker.Item label="Adult's number" key="0"/>
+          <Picker.Item label="Adults" value="0"/>
           <Picker.Item label="1" value="1"/>
           <Picker.Item label="2" value="2"/>
           <Picker.Item label="3" value="3"/>
@@ -151,7 +151,7 @@ export const SearchComponent = ({navigation} : any) => {
           selectedValue={childrenNumber}
           onValueChange={handleChildrenNumberChange}
         >
-          <Picker.Item label="Children's number" value="0"/>
+          <Picker.Item label="Children" value="0"/>
           <Picker.Item label="1" value="1"/>
           <Picker.Item label="2" value="2"/>
           <Picker.Item label="3" value="3"/>
