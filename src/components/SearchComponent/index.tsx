@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
-import {Form, Item, Icon, Button, Text} from 'native-base';
+import React, { useState } from 'react'
+import { Form, Item, Icon, Button, Text } from 'native-base'
 import moment from 'moment'
-import styles from './style';
-import { useDispatch, useSelector } from 'react-redux';
-import {getLocations} from '~Store/actions/itineraries';
-import { FixedList } from '~Components/FixedList';
-import {RESULTS} from '~Constants';
-import {RootState} from '~Store/reducers';
-import {DatePicker} from '~Components/DatePicker';
-import {Input} from '~Components/Input'
-import {Picker,ItemPicker} from '~Components/Picker/Picker';
+import styles from './style'
+import { useDispatch, useSelector } from 'react-redux'
+import { getLocations } from '~Store/actions/itineraries'
+import { FixedList } from '~Components/FixedList'
+import { RESULTS } from '~Constants'
+import { RootState } from '~Store/reducers'
+import { DatePicker } from '~Components/DatePicker'
+import { Input } from '~Components/Input'
+import { Picker, ItemPicker } from '~Components/Picker/Picker'
 
 const generateItemsPicker = (itemNumber: number): ItemPicker[] => {
   let items: ItemPicker[] = []
@@ -19,9 +19,9 @@ const generateItemsPicker = (itemNumber: number): ItemPicker[] => {
 }
 const itemsPicker: ItemPicker[] = generateItemsPicker(5)
 
-export const SearchComponent = ({navigation} : any) => {
+export const SearchComponent = ({ navigation } : any) => {
   const dispatch = useDispatch()
-  const places  = useSelector((state :RootState) => state.itineraries.places)
+  const places  = useSelector((state: RootState) => state.itineraries.places)
 
   const [originPlace, setOriginPlace] = useState({PlaceName:''} as any)
   const [destinationPlace, setDestinationPlace] = useState({PlaceName:''} as any)
@@ -32,17 +32,17 @@ export const SearchComponent = ({navigation} : any) => {
   const [showOriginPlaceList, setShowOriginPlaceList] = useState(false)
   const [showDestinationPlaceList, setShowDestinationPlaceList] = useState(false)
 
-  const handleOriginPlaceChange = (origin:string) => setOriginPlace({PlaceName: origin})
+  const handleOriginPlaceChange = (origin: string) => setOriginPlace({PlaceName: origin})
   const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( {PlaceName: destination})
 
-  const handleOutBoundDateChange = (outboundDate: Date):void=> {
+  const handleOutBoundDateChange = (outboundDate: Date): void=> {
       setOutBoundDate(outboundDate)
       if(outboundDate > inBoundDate) {
         setInBoundDate(outboundDate)
       }
   }
 
-  const handleInBoundDateChange = (inboundDate: Date):void => {
+  const handleInBoundDateChange = (inboundDate: Date): void => {
       setInBoundDate(inboundDate)
   }
 
