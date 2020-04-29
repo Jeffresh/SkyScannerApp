@@ -2,7 +2,7 @@ import {Icon, Input as NativeBaseInput, Item} from "native-base";
 import React from 'react';
 import {NativeSyntheticEvent, StyleProp, TextInputKeyPressEventData, TextStyle} from 'react-native';
 
-interface InputProps {
+export interface InputProps {
   iconName: string,
   iconIos?: string,
   iconAndroid?: string,
