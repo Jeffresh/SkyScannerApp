@@ -11,7 +11,7 @@ interface DataPickerProps {
   minimumValue?:Date
 }
 
-export const DataPicker: React.FC<DataPickerProps> = ({value, onChange, minimumValue}: DataPickerProps) => {
+export const DatePicker: React.FC<DataPickerProps> = ({value, onChange, minimumValue}: DataPickerProps) => {
   const[showDataPicker, setShowDataPicker] = useState(false)
 
   const handleDateBtnPress = () => {

@@ -7,7 +7,7 @@ import {getLocations} from '~Store/actions/itineraries';
 import { FixedList } from '~Components/FixedList';
 import {RESULTS} from '~Constants';
 import {RootState} from '~Store/reducers';
-import {DataPicker} from '~Components/DatePicker';
+import {DatePicker} from '~Components/DatePicker';
 import {Input} from '~Components/Input'
 
 
@@ -115,12 +115,13 @@ export const SearchComponent = ({navigation} : any) => {
       </Item>
       {showDestinationPlaceList &&
       ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
+
       <Item style={styles.datesContainer}>
-        <DataPicker
+        <DatePicker
           value={outBoundDate}
           onChange={handleOutBoundDateChange}
         />
-        <DataPicker
+        <DatePicker
           value={inBoundDate}
           minimumValue={outBoundDate}
           onChange={handleInBoundDateChange}
