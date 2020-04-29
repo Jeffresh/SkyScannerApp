@@ -5,13 +5,13 @@ import React, {useState} from 'react';
 import moment from 'moment';
 
 
-interface DataPickerProps {
+interface DatePickerProps {
   value: Date,
   onChange?: (date: Date) => void,
   minimumValue?:Date
 }
 
-export const DatePicker: React.FC<DataPickerProps> = ({value, onChange, minimumValue}) => {
+export const DatePicker: React.FC<DatePickerProps> = ({value, onChange, minimumValue}) => {
   const[showDataPicker, setShowDataPicker] = useState(false)
 
   const handleDateBtnPress = () => {
