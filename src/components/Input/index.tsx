@@ -15,7 +15,7 @@ interface InputProps {
 
 }
 
-export const Input: React.FC<InputProps> = (props:InputProps) => {
+export const Input: React.FC<InputProps> = (props) => {
   return (
     <>
       <Icon name={props.iconName} ios={props.iconIos} android={props.iconAndroid} style={props.iconStyle}/>
