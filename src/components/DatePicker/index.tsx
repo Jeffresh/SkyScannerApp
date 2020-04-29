@@ -27,7 +27,7 @@ export const DataPicker: React.FC<DataPickerProps> = ({value, onChange, minimumV
   }
   return(
     <>
-      <Button transparent onPress={handleDateBtnPress} style={styles.input}>
+      <Button transparent onPress={handleDateBtnPress} style={styles.btnDatePicker}>
         <Icon name="md-calendar" ios="ios-calendar" android='md-calendar' style={styles.icon}/>
         <Text style={styles.textDatePicker}> {(moment(value).format('YYYY-MM-DD'))}</Text>
       </Button>
