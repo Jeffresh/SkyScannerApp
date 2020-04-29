@@ -11,6 +11,13 @@ import {DatePicker} from '~Components/DatePicker';
 import {Input} from '~Components/Input'
 import {Picker,ItemPicker} from '~Components/Picker/Picker';
 
+const generateItemsPicker = (itemNumber: number): ItemPicker[] => {
+  let items: ItemPicker[] = []
+  for (let i = 1; i <= itemNumber; i ++)
+    items.push({label:`${i}`, value:`${i}`})
+  return items
+}
+const itemsPicker: ItemPicker[] = generateItemsPicker(5)
 
 export const SearchComponent = ({navigation} : any) => {
   const dispatch = useDispatch()
