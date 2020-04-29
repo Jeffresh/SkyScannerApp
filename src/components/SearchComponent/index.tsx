@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Input, Item, Icon, Picker, Button, Text} from 'native-base';
+import {Form, Item, Icon, Picker, Button, Text} from 'native-base';
 import moment from 'moment'
 import styles from './style';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +8,7 @@ import { FixedList } from '~Components/FixedList';
 import {RESULTS} from '~Constants';
 import {RootState} from '~Store/reducers';
 import {DataPicker} from '~Components/DatePicker';
+import {Input} from '~Components/Input'
 
 
 export const SearchComponent = ({navigation} : any) => {
@@ -87,24 +88,30 @@ export const SearchComponent = ({navigation} : any) => {
   return (
     <Form style={styles.form}>
       <Item>
-        <Icon name="md-home" ios='ios-home' android='md-home'/>
         <Input
-          placeholder="Origin"
-          value={originPlace.PlaceName}
+          inputPlaceHolder={"Origin"}
+          iconName={'md-home'}
+          iconIos={'ios-home'}
+          iconAndroid={'md-home'}
+          inputValue={originPlace.PlaceName}
           onChangeText={handleOriginPlaceChange}
           onKeyPress={handleOriginPlaceKeyPress}
-          style={styles.input}/>
+          InputStyle={styles.input}
+        />
       </Item>
       {showOriginPlaceList &&
       (<FixedList places={places} containerStyle={{top: 50}} onItemPress={handleOriginPlaceItemPress} /> )}
       <Item>
-        <Icon name="md-airplane" ios='ios-airplane' android='md-airplane'/>
         <Input
-          placeholder="Destination"
-          value={destinationPlace.PlaceName}
+          inputPlaceHolder={"Destination"}
+          iconName={'md-airplane'}
+          iconIos={'ios-airplane'}
+          iconAndroid={'md-airplane'}
+          inputValue={destinationPlace.PlaceName}
           onChangeText={handleDestinationPlaceChange}
           onKeyPress={handleDestinationPlaceKeyPress}
-          style={styles.input}/>
+          style={styles.input}
+          />
       </Item>
       {showDestinationPlaceList &&
       ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
