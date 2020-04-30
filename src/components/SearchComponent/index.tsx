@@ -3,13 +3,14 @@ import { Form, Item, Icon, Button, Text } from 'native-base'
 import moment from 'moment'
 import styles from './style'
 import { useDispatch, useSelector } from 'react-redux'
-import { getLocations } from '~Store/actions/itineraries'
+import {delLocations, getLocations} from '~Store/actions/itineraries'
 import { FixedList } from '~Components/FixedList'
 import { RESULTS } from '~Constants'
 import { RootState } from '~Store/reducers'
 import { DatePicker } from '~Components/DatePicker'
 import { Input } from '~Components/Input'
 import { Picker, ItemPicker } from '~Components/Picker/Picker'
+import {AutoCompleteInput} from '~Components/SearchComponent/AutoCompleteInput';
 
 const generateItemsPicker = (itemNumber: number): ItemPicker[] => {
   let items: ItemPicker[] = []
@@ -22,18 +23,17 @@ const itemsPicker: ItemPicker[] = generateItemsPicker(5)
 export const SearchComponent = ({ navigation } : any) => {
   const dispatch = useDispatch()
   const places  = useSelector((state: RootState) => state.itineraries.places)
-
+  const [originPlaces, setOriginPlaces] = useState(null)
+  const [destinationPlaces, setDestinationPlaces] = useState(null)
   const [originPlace, setOriginPlace] = useState({PlaceName:''} as any)
   const [destinationPlace, setDestinationPlace] = useState({PlaceName:''} as any)
   const [outBoundDate, setOutBoundDate] = useState(new Date() as Date)
   const [inBoundDate, setInBoundDate] = useState(new Date() as Date)
   const [adultsNumber, setAdultsNumber] = useState('0')
   const [childrenNumber, setChildrenNumber] = useState('0')
-  const [showOriginPlaceList, setShowOriginPlaceList] = useState(false)
-  const [showDestinationPlaceList, setShowDestinationPlaceList] = useState(false)
 
   const handleOriginPlaceChange = (origin: string) => setOriginPlace({PlaceName: origin})
-  const handleDestinationPlaceChange = (destination:string) => setDestinationPlace( {PlaceName: destination})
+  const handleDestinationPlaceChange = (destination: string) => setDestinationPlace( {PlaceName: destination})
 
   const handleOutBoundDateChange = (outboundDate: Date): void=> {
       setOutBoundDate(outboundDate)
@@ -69,61 +69,65 @@ export const SearchComponent = ({ navigation } : any) => {
 
   const handleOriginPlaceKeyPress = ({ nativeEvent }:any) => {
     if(originPlace.PlaceName.length > 2) {
-      dispatch(getLocations({ query: originPlace.PlaceName }))
-      setShowOriginPlaceList(true)
+      dispatch(getLocations({ query: originPlace.PlaceName}))
+      setOriginPlaces(places)
+    }
+    else if(originPlace.PlaceName < 2 && originPlaces) {
+      dispatch(delLocations())
+      setOriginPlaces(null)
     }
   }
 
   const handleDestinationPlaceKeyPress = ({ nativeEvent }:any) => {
     if(destinationPlace.PlaceName.length > 2) {
       dispatch(getLocations({ query: destinationPlace.PlaceName}))
-      setShowDestinationPlaceList(true)
+      setDestinationPlaces(places)
     }
+    else if(destinationPlace.PlaceName < 2 && destinationPlaces) {
+      dispatch(delLocations())
+      setDestinationPlaces(null)
+    }
+
   }
 
   const handleOriginPlaceItemPress = (placeSelected: any) => {
     setOriginPlace(placeSelected)
-    setShowOriginPlaceList(false)
-
+    setOriginPlaces(null)
+    dispatch(delLocations())
   }
 
   const handleDestinationPlaceItemPress = (placeSelected: any) => {
     setDestinationPlace(placeSelected)
-    setShowDestinationPlaceList(false)
-
+    setDestinationPlaces(null)
+    dispatch(delLocations())
   }
 
   return (
     <Form style={styles.form}>
-      <Item>
-        <Input
-          inputPlaceHolder={"Origin"}
-          iconName={'md-home'}
-          iconIos={'ios-home'}
-          iconAndroid={'md-home'}
-          inputValue={originPlace.PlaceName}
-          onChangeText={handleOriginPlaceChange}
-          onKeyPress={handleOriginPlaceKeyPress}
-          inputStyle={styles.input}
-        />
-      </Item>
-      {showOriginPlaceList &&
-      (<FixedList places={places} containerStyle={{top: 50}} onItemPress={handleOriginPlaceItemPress} /> )}
-      <Item>
-        <Input
-          inputPlaceHolder={"Destination"}
-          iconName={'md-airplane'}
-          iconIos={'ios-airplane'}
-          iconAndroid={'md-airplane'}
-          inputValue={destinationPlace.PlaceName}
-          onChangeText={handleDestinationPlaceChange}
-          onKeyPress={handleDestinationPlaceKeyPress}
-          inputStyle={styles.input}
-          />
-      </Item>
-      {showDestinationPlaceList &&
-      ( <FixedList places={places} containerStyle={{top: 130}} onItemPress={handleDestinationPlaceItemPress} /> )}
-
+      <AutoCompleteInput
+        inputPlaceHolder={"Origin"}
+        iconName={'md-home'}
+        iconIos={'ios-home'}
+        iconAndroid={'md-home'}
+        inputValue={originPlace.PlaceName}
+        onChangeText={handleOriginPlaceChange}
+        onKeyPress={handleOriginPlaceKeyPress}
+        inputStyle={styles.input}
+        listValues={originPlaces}
+        onItemPress={handleOriginPlaceItemPress}
+      />
+      <AutoCompleteInput
+        inputPlaceHolder={"Destination"}
+        iconName={'md-airplane'}
+        iconIos={'ios-airplane'}
+        iconAndroid={'md-airplane'}
+        inputValue={destinationPlace.PlaceName}
+        onChangeText={handleDestinationPlaceChange}
+        onKeyPress={handleDestinationPlaceKeyPress}
+        inputStyle={styles.input}
+        listValues={destinationPlaces}
+        onItemPress={handleDestinationPlaceItemPress}
+      />
       <Item style={styles.datesContainer}>
         <DatePicker
           value={outBoundDate}
@@ -143,7 +147,6 @@ export const SearchComponent = ({ navigation } : any) => {
           selectedValue={adultsNumber}
           onValueChange={handleAdultsNumberChange}
           items={itemsPicker}
-
         />
         <Picker
           iconName={'person'}
@@ -152,7 +155,6 @@ export const SearchComponent = ({ navigation } : any) => {
           selectedValue={childrenNumber}
           onValueChange={handleChildrenNumberChange}
           items={itemsPicker}
-
         />
       </Item>
       <Button style={styles.searchBtn} disabled={searchButtonDisabled()} onPress={handleSearchBtnClick}>
