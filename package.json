@@ -14,7 +14,7 @@
     "@react-navigation/native": "^5.1.5",
     "@react-navigation/stack": "^5.2.10",
     "@types/react-redux": "^7.1.7",
-    "axios": "^1.7.4",
+    "axios": "^1.8.2",
     "expo": "^37.0.0",
     "expo-cli": "^3.18.2",
     "expo-constants": "~9.0.0",
